@@ -15,6 +15,9 @@
     [:tr.bg-slate-300.dark:bg-slate-700.dark:text-white (for [h headers] [:th.border.border-gray-500.text-center.dark:border-white h])]
     (for [r rows] [:tr.bg-blue-50.dark:bg-slate-500.dar:text-white (for [c r] [:td.border.border-gray-500.dark:border-white c])])]))
 
+^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
+(def render-eq (comp tex ->TeX))
+
 ;;## Polynomials
 
 ;;#### The Fundamental Theorem of Algebra
@@ -28,6 +31,7 @@
 ;; $${x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}}$$
 
 ;; $${\text{The term } b^2 - 4ac \text{ is called the \bf{discriminant}}}$$
+
 
 ;;##### Number of Real Roots
 ^{:nextjournal.clerk/visibility {:code :hide}}
