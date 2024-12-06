@@ -15,4 +15,7 @@
      ;; make sure this sha matches the one in `:deps` above.
      :git/sha "4329fa31b75bf26c04bdcc803a52fe642baec56e"
      :deps/root "render"}}
-   :exec-fn user/build!}}}
+   :exec-fn user/build!
+   :exec_args {
+               :paths ["notebooks/nwestallen"]
+               }}}}
