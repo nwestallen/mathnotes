@@ -125,13 +125,29 @@ x = \\frac{-b\\pm\\sqrt{b^2-4ac}}{2a} \\\\
              [(tex "\\log_{b}(\\sqrt[y]{x}) = \\frac{\\log_{b}(x)}{y}")]
              [(tex "x^{\\log_{b}(y)} = y^{\\log_{b}(x)}")]])
 
-;;### Derivatives
+;;### Logaritmic Derivatives
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (make-table
  [(tex "\\bf f(x)"), (tex "\\bf f'(x)")],
  [[(tex "\\ln{x}"), (render-eq (/ 1 'x))]
   [(tex "\\log_b(x)"), (tex "\\frac{1}{x\\ln(b)}")]])
 
+;;## Derivation
+
+;;### Definition
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "f'(x) = \\lim_{h \to 0}\\frac{f(a+h) - f(a)}{h}")
+
+;;### Rules
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table [(tex "\\textbf{Rule}"), (tex "\\textbf{Definition}")]
+            [
+             [(tex "\\text{Sum Rule}"), (tex "(f(x) + g(x))' = f'(x) + g'(x)")]
+             [(tex "\\text{Product Rule}"), (tex "(f(x)g(x))' = f'(x)g(x) + f(x)g'(x)")]
+             [(tex "\\text{Quotient Rule}"), (tex "\\left(\\frac{f(x)}{g(x)}\\right)' = \\frac{f'(x)g(x) - f(x)g'(x)}{(g(x))^2}")]
+             [(tex "\\text{Chain Rule}"), (tex "(f(g(x)))' = f'(g(x))(g'(x))")]
+             ])
 
 ;;## Vectors
 
