@@ -26,11 +26,11 @@
 ;;### Quadratic Equations
 
 ;;#### The Quadratic Formula
-;; $${\text{For an equation of the form }ax^2 + bx + c = 0:}$$
-
-;; $${x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}}$$
-
-;; $${\text{The term } b^2 - 4ac \text{ is called the \bf{discriminant}}}$$
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\text{For an equation of the form }ax^2 + bx + c = 0: \\\\
+x = \\frac{-b\\pm\\sqrt{b^2-4ac}}{2a} \\\\
+\\\\
+\\text{The term } b^2 - 4ac \\text{ is called the \\bf{discriminant}}")
 
 ;;#### Number of Real Roots
 ^{:nextjournal.clerk/visibility {:code :hide}}
@@ -49,9 +49,9 @@
 
 ;;#### Completing the Square
 
-;; $${\text{If } ax^2 + bx + c = (x+p)^2 \text{ then the equation can be manipulated algebraically}}$$
-
-;;$${\text{into the form } x^2 + 2px + p^2 = d \text{ where } d \text{ is some constant and } x + p = \pm \sqrt{d}}$$
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\text{If } ax^2 + bx + c = (x+p)^2 \\text{ then the equation can be manipulated algebraically} \\\\
+\\text{into the form } x^2 + 2px + p^2 = d \\text{ where } d \\text{ is some constant and } x + p = \\pm \\sqrt{d}")
 
 ^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
 (tex "test")
@@ -131,6 +131,7 @@
  [(tex "\\bf f(x)"), (tex "\\bf f'(x)")],
  [[(tex "\\ln{x}"), (render-eq (/ 1 'x))]
   [(tex "\\log_b(x)"), (tex "\\frac{1}{x\\ln(b)}")]])
+
 
 ;;## Vectors
 
