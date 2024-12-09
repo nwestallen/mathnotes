@@ -6,14 +6,8 @@
    :exclude [+ - * / zero? compare divide numerator denominator
              infinite? abs ref partial =])
   (:require [emmy.env :as e :refer :all]
-            [nextjournal.clerk :as clerk :refer [tex]]))
-
-^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
-(defn make-table [headers rows]
-  (clerk/html
-   [:table.drop-shadow-md
-    [:tr.bg-slate-300.dark:bg-slate-700.dark:text-white (for [h headers] [:th.border.border-gray-500.text-center.dark:border-white h])]
-    (for [r rows] [:tr.bg-blue-50.dark:bg-slate-500.dar:text-white (for [c r] [:td.border.border-gray-500.dark:border-white c])])]))
+            [nextjournal.clerk :as clerk :refer [tex]]
+            [nwestallen.utils :refer [make-table]]))
 
 ^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
 (def render-eq (comp tex ->TeX))
