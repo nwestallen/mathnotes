@@ -64,6 +64,20 @@
 
 ;;${= (2x + 1)(x - 3)}$
 
+;;### Cubic Equations
+
+;;Equations of the form ${ax^3 + bx^2 + cx + d = 0}$
+
+;;#### Cubic Identities
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table
+ [(tex "\\textbf{Name}"), (tex "\\textbf{Identity}")]
+ [
+  [(tex "\\text{Difference of Cubes}") (tex "a^3 - b^3 = (a-b)(a^2 + ab + b^2)")]
+  [(tex "\\text{Sum of Cubes}") (tex "a^3 + b^3 = (a+b)(a^2 - ab + b^2)")]
+  ])
+
 
 ;;## Trigonometry
 
