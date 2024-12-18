@@ -20,11 +20,12 @@
 ;;### Quadratic Equations
 
 ;;#### The Quadratic Formula
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\text{For an equation of the form }ax^2 + bx + c = 0: \\\\
-x = \\frac{-b\\pm\\sqrt{b^2-4ac}}{2a} \\\\
-\\\\
-\\text{The term } b^2 - 4ac \\text{ is called the \\bf{discriminant}}")
+
+;;For an equation of the form ${ax^2 + bx + c = 0}$:
+
+;;${x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}}$
+
+;;The term ${b^2 - 4ac}$ is called the **discriminant**
 
 ;;#### Number of Real Roots
 ^{:nextjournal.clerk/visibility {:code :hide}}
@@ -43,14 +44,13 @@ x = \\frac{-b\\pm\\sqrt{b^2-4ac}}{2a} \\\\
 
 ;;#### Completing the Square
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\text{If } ax^2 + bx + c = (x+p)^2 \\text{ then the equation can be manipulated algebraically} \\\\
-\\text{into the form } x^2 + 2px + p^2 = d \\text{ where } d \\text{ is some constant and } x + p = \\pm \\sqrt{d}")
+;; If ${ax^2 + bx + c = (x+p)^2}$ then the equation can be manipulated algebraically into the form
+;;${x^2 + 2px + p^2 = d}$ where ${d}$ is some constant and ${x+p = \pm \sqrt{d}}$
 
 ;;#### Factoring Quadtratics with Leading Coefficients
 ;; For equations of the form ${ax^2 + bx + c}$, find two numbers ${b_1}$ and ${b_2}$ that sum to b and multiply to ac, then split ${b}$ into ${b_1}$ and ${b_2}$ and factor the equation by grouping:
 
-;;Ex:
+;;**Ex:**
 
 ;;${2x^2 -5x -3}$
 
@@ -116,7 +116,7 @@ x = \\frac{-b\\pm\\sqrt{b^2-4ac}}{2a} \\\\
 ;;## Logarithms
 
 ;;### Definition
-;;$${\log_{b}(y) = x \Longleftrightarrow b^x = y}$$
+;;${\log_{b}(y) = x \Longleftrightarrow b^x = y}$
 
 ;;### Identities
 ^{:nextjournal.clerk/visibility {:code :hide}}
