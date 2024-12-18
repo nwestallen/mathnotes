@@ -47,8 +47,24 @@ x = \\frac{-b\\pm\\sqrt{b^2-4ac}}{2a} \\\\
 (tex "\\text{If } ax^2 + bx + c = (x+p)^2 \\text{ then the equation can be manipulated algebraically} \\\\
 \\text{into the form } x^2 + 2px + p^2 = d \\text{ where } d \\text{ is some constant and } x + p = \\pm \\sqrt{d}")
 
-^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
-(tex "test")
+;;#### Factoring Quadtratics with Leading Coefficients
+;; For equations of the form ${ax^2 + bx + c}$, find two numbers ${b_1}$ and ${b_2}$ that sum to b and multiply to ac, then split ${b}$ into ${b_1}$ and ${b_2}$ and factor the equation by grouping:
+
+;;Ex:
+
+;;${2x^2 -5x -3}$
+
+;;${a = 2, b = -5, c = -3, ac = -6}$
+
+;;${b_1 = -6, b_2 = 1}$
+
+;;${2x^2 - 5x - 3 = 2x^2 - 6x + x - 3}$
+
+;;${= 2x(x - 3) + (x - 3)}$
+
+;;${= (2x + 1)(x - 3)}$
+
+
 ;;## Trigonometry
 
 ;;#### Primary Functions
@@ -126,7 +142,7 @@ x = \\frac{-b\\pm\\sqrt{b^2-4ac}}{2a} \\\\
  [[(tex "\\ln{x}"), (render-eq (/ 1 'x))]
   [(tex "\\log_b(x)"), (tex "\\frac{1}{x\\ln(b)}")]])
 
-;;## Derivation
+;;## Differentiation
 
 ;;### Definition
 
