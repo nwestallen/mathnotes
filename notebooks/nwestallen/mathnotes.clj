@@ -156,12 +156,25 @@
  [[(tex "\\ln{x}"), (render-eq (/ 1 'x))]
   [(tex "\\log_b(x)"), (tex "\\frac{1}{x\\ln(b)}")]])
 
+;;## Limits
+
+;;### Properties
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table
+ [(tex "\\textbf{Properties}")]
+ [
+  [(tex "\\lim_{x \\to p}(f(x) + g(x)) = \\lim_{x \\to p}(f(x)) + \\lim_{x \\to p}(g(x))")]
+  [(tex "\\lim_{x \\to p}(f(x) - g(x)) = \\lim_{x \\to p}(f(x)) - \\lim_{x \\to p}(g(x))")]
+  [(tex "\\lim_{x \\to p}(f(x) \\cdot g(x)) = \\lim_{x \\to p}(f(x)) \\cdot \\lim_{x \\to p}(g(x))")]
+  [(tex "\\lim_{x \\to p}(f(x) / g(x)) = \\lim_{x \\to p}(f(x)) / \\lim_{x \\to p}(g(x))")]
+  ])
+
 ;;## Differentiation
 
 ;;### Definition
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "f'(x) = \\lim_{h \to 0}\\frac{f(a+h) - f(a)}{h}")
+(tex "f'(x) = \\lim_{h \\to 0}\\frac{f(a+h) - f(a)}{h}")
 
 ;;### Rules
 ^{:nextjournal.clerk/visibility {:code :hide}}
