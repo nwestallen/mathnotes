@@ -19,7 +19,7 @@
 (make-table
  ["Rank" "Hand" "Form" "5 Card Combos"]
  [
-  [1 "Royal Flush" (hand "As" "Ks" "Qs" "Js" "Ts") (tex "\\binom{4}{1}")]
+  [1 "Royal Flush" (hand "As" "Ks" "Qs" "Js" "Ts") (tex "\\binom{4}{1} = 4")]
   [2 "Straight Flush" (hand "Th" "9h" "8h" "7h" "6h") (tex "\\binom{10}{1}\\binom{4}{1}-\\binom{4}{1}")]
   [3 "Four of A Kind" (hand "Qs" "Qh" "Qc" "Qd" "As") (tex "\\binom{13}{1}\\binom{4}{4}\\binom{12}{1}\\binom{12}{1}")]
   [4 "Full House" (hand "As" "Ah" "Ac" "Kd" "Kc") (tex "\\binom{13}{1}\\binom{4}{3}\\binom{12}{1}\\binom{4}{2}")]
@@ -41,3 +41,37 @@
 ;; ## Pot Odds
 
 ;; When face another player's bet, you stand to gain the entire pot if you stay in the hand, including the aggressor's bet, but must risk the bet in order for a chacne to win. This implies a risk-to-reward ratio known as pot odds.
+
+;; ### Immediate Pot Odds
+
+;; Immediate pot odds are the most straight-forward application of pot odds. They represent the odds you're getting on making your hand on the next immediate street, for example, when facing a bet on the turn, you have one more card to see and one more round of betting after finding out whether you made your hand.
+
+;; ### Effective Pot Odds
+
+;; Effective pot odds deviate from immediate pot odds when there are multiple streets remaining with additional rounds of betting. The additional rounds of betting mean that we likely have to put more money into the pot and therefore, immediate pot odds will be a poor representation of the true odds we are facing for the remainder of the hand.
+
+;; Note that if one player goes all-in while heads-up on the flop, then imeediate pot odds are still appropriate despite there being two cards to come because there is no further betting action, so we only need to consider the odds of making our hand with the next two cards to come when determining whether to call or fold.
+
+;; Considering effective pot odds will be most applicable in limit games where bet-sizes are predetermined and limited, and the pot can only grow so much relative to iteslf
+
+;; ### Implied Pot Odds
+
+;; In pot-limit and no-limit games, implied odds can dominate effective odds. Implied odds factor in potential future winnings beyond what's in the pot, up to the smallest remaianing stack-size in the hand.
+
+;; ### Reverse Implied Pot Odds
+
+;; The combination of implied pot odds and reverse implied pot odds account for much of the theoretical importance of stack sizes
+
+;; ## Optionality
+
+;; ## Postion
+
+;; ## The Clairvoyance Game
+
+
+;; ## Considerations
+
+;; Pot Size, Bet Size, Stack Sizes, Position, Cards, Previous Actions -> Implied Ranges, External Clues
+;; - Pot Size & Bet Size -> Immediate & Effective Pot Odds
+;; - Pot Size & Stack Sizes -> Implied & Reverse Implied Odds
+
