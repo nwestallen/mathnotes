@@ -186,6 +186,43 @@
              [(tex "\\text{Chain Rule}"), (tex "(f(g(x)))' = f'(g(x))(g'(x))")]
              ])
 
+;;## Discrete Sums
+
+;;### Arithmetic Series
+;;$${1 + 2 + 3 + 4 + 5 = 15 = \frac{(1 + 5) + (2 + 4) + (3 + 3) + (4 + 2) + (5 + 1)}{2} = \frac{6 + 6 + 6 + 6 + 6}{2}}$$
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\sum_{i=a}^{b} i = \\frac{(a + b) * n}{2}")
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "n = \\frac{i_n - i_1}{i_2 - i_1} + 1")
+
+;;### Geometric Series
+
+;;#### Finitie Sum
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "a + ar + ar^2 + ... + ar^n = \\sum_{k=0}^{n} ar^k = a\\left(\\frac{1-r^{n+1}}{1-r}\\right)")
+
+;;##### Derivation
+
+;;${S_n = a + ar + ar^2 + ... + ar^n}$,
+
+;;${rS_n = ar + ar^2 + ar^3 + ... + ar^n + ar^{n+1}}$,
+
+;;${S_n - rS_n = a - ar^{n+1}}$,
+
+;;${S_n(1 - r) = a(1-r^{n+1})}$,
+
+;;${S_n = a\left(\frac{1-r^{n+1}}{1-r}\right)}$
+
+;;#### Infinite Sum
+
+;; The sum of an infinite series is the limit of it's partial sums, which converges when ${|r| < 1}$
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\lim_{n \\to \\infty} S_n = \\lim_{n \\to \\infty}a\\left(\\frac{1-r^{n+1}}{1-r}\\right) = \\frac{a}{1-r}")
+
 ;;## Vectors
 
 ;;### Operations
