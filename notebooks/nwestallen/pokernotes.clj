@@ -62,10 +62,28 @@
 
 ;; The combination of implied pot odds and reverse implied pot odds account for much of the theoretical importance of stack sizes
 
+;; ### Counting Outs - The Rule of 4 & 2
+(defn outs-prob [outs]
+  (let [turn (format "%.2f %%" (* 100.0 (/ outs (- 52 5))))
+        river (format "%.2f %%" (* 100.0 (/ outs (- 52 6))))
+        both (format "%.2f %%" (* 100.0 (- 1.0 (* (/ (- 52 5 outs) (- 52 5)) (/ (- 52 6 outs) (- 52 6))))))]
+    [outs turn river both]))
+
+(- 52 5 1)
+
+(outs-prob 1)
+
+;; #### Probabilty of Hitting Your Outs by Street
+(make-table
+ ["Outs" "Flop to Turn" "Turn to River" "Flop to River"]
+ (mapv outs-prob (range 1 22))
+ )
+
+;; The above table can be approximated by multiplying the number of outs
+
 ;; ## Optionality
 
 ;; ## Postion
-
 ;; ## The Clairvoyance Game
 
 
