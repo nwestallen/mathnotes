@@ -78,10 +78,33 @@
   [(tex "\\text{Sum of Cubes}") (tex "a^3 + b^3 = (a+b)(a^2 - ab + b^2)")]
   ])
 
+;;## Conic Sections
+
+;;### Parabolas
+
+;;#### Standard Form
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table
+ [(tex "\\textbf{Type}") (tex "\\textbf{Equation}")]
+ [
+  [(tex "\\text{Vertical}") (tex "(x-h)^2 = 4p(y-k)")]
+  [(tex "\\text{Horizontal}") (tex "(y-k)^2 = 4p(x-h)")]
+  ])
+
+;;#### Parametric Forms
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table
+ [(tex "\\textbf{Type}") (tex "\\textbf{Equations}")]
+ [
+  [(tex "\\text{Vertical}") (tex "x-h = 2pt,\\ y-k=pt^2,\\ t \\in{(-\\infty, \\infty)}")]
+  [(tex "\\text{Horizontal}") (tex "x-h = pt^2,\\ y-k=2pt,\\ t \\in{(-\\infty, \\infty)}")]
+  ])
 
 ;;## Trigonometry
 
-;;#### Primary Functions
+;;### Primary Functions
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (make-table [(tex "\\textbf{Function}"), (tex "\\textbf{Definition}")]
             [[(tex "\\sin(x)"), (tex "\\frac{\\text{opposite}}{\\text{hypotenuse}}")]
