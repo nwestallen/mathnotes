@@ -102,6 +102,30 @@
   [(tex "\\text{Horizontal}") (tex "x-h = pt^2,\\ y-k=2pt,\\ t \\in{(-\\infty, \\infty)}")]
   ])
 
+;;### Circles
+
+;;#### Standard Form
+;; For a circle with radius r centered at (h,k):
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "(x-h)^2 - (y-k)^2 = r^2")
+
+;;#### Parametric Form
+;; For a circle with radius r centered at (h,k):
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "x = r\\cos(\\theta) + h,\\ y = r\\sin(\\theta) + k,\\ \\theta \\in [0,2\\pi)")
+
+;;### Ellipses
+
+;;#### Standard Form
+;;Ellipse with horizontal radius a, vertical radius b, centered at (h,k):
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\frac{(x-h)^2}{a^2} + \\frac{(y-k)^2}{b^2} = 1")
+
+;;#### Parametric Form
+;;Ellipse with horizontal radius a, vertical radius b, centered at (h,k):
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "x = a\\cos(\\theta) + h,\\ y =b\\sin(\\theta) + k,\\ \\theta\\in[0,2\\pi)")
+
 ;;## Trigonometry
 
 ;;### Primary Functions
