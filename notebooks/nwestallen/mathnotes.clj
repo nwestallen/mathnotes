@@ -270,6 +270,34 @@
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "\\lim_{n \\to \\infty} S_n = \\lim_{n \\to \\infty}a\\left(\\frac{1-r^{n+1}}{1-r}\\right) = \\frac{a}{1-r}")
 
+;;## Integrals
+
+;;### Riemann Sums
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\text{For } y = f(x) \\text{ over the interval } [a,b] \\text{ where } x_k = a + k\\Delta x \\text{ and } \\Delta x = \\frac{b-a}{n}:")
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table [(tex "\\textbf{Sum Type}"), (tex "\\textbf{Formula}")]
+            [
+             [(tex "\\text{Left Riemann Sum}"), (tex "\\sum_{k=0}^{n-1} f(x_k)\\Delta x")]
+             [(tex "\\text{Right Riemann Sum}"), (tex "\\sum_{k=1}^{n} f(x_k)\\Delta x")]
+             ])
+
+;;### Definition of Definite Integrals
+;; We can define a definite integral f(x) over the interval [a,b] as the limit as n approaches infinity or either a left or right Riemann sum:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\int_{a}^{b} f(x)dx = \\lim_{n \\to \\infty} \\sum_{k=0}^{n-1} f(x_k)\\Delta x = \\lim_{n \\to \\infty} \\sum_{k=1}^{n} f(x_k)\\Delta x,\\, \\Delta x = \\frac{b-a}{n}")
+
+;;### The Fundamental Theorem of Calculus
+;;#### The First Part
+;; Let ${f}$ be a continuous real-valued function defined on the closed interval ${[a,b]}$. Lef ${F}$ be a function, defined for all ${x}$ in ${[a, b]}$ by ${\int_{a}^{x} f(t)dt}$, then ${F'(x) = f(x)}$ for all ${x}$ in ${(a,b)}$ and ${F}$ is the *antiderivative* of ${f}$
+;;#### Corollary
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\int_{a}^{b} f(t)dt = F(b) - F(a)")
+;;#### The Second Part
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "F(x) = \\int_{a}^{x} f(t)dt \\, \\Longrightarrow \\, F'(x) = \\frac{d}{dx}\\int_{a}^{x} f(t)dt = f(x)")
+
+
 ;;## Vectors
 
 ;;### Operations
