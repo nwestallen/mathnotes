@@ -81,6 +81,7 @@
 ;;## Conic Sections
 
 ;;### Parabolas
+;; Vertex at (h,k)
 
 ;;#### Standard Form
 
@@ -126,6 +127,12 @@
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "x = a\\cos(\\theta) + h,\\ y =b\\sin(\\theta) + k,\\ \\theta\\in[0,2\\pi)")
 
+;;### Hyperbolas
+;;#### Standard Form
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table [(tex "\\textbf{Type}"), (tex "\\textbf{Equation}")]
+            [[(tex "\\text{Horizontal}"), (tex "\\frac{(x-h)^2}{a^2} - \\frac{(y-k)^2}{b^2} = 1")]
+             [(tex "\\text{Vertical}"), (tex "\\frac{(y-k)^2}{a^2} - \\frac{(x-h)^2}{b^2} = 1")]])
 ;;## Trigonometry
 
 ;;### Primary Functions
