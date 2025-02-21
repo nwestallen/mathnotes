@@ -81,7 +81,7 @@
 ;;## Conic Sections
 
 ;;### Parabolas
-;; Vertex at (h,k)
+;; Vertex at ${(h,k)}$
 
 ;;#### Standard Form
 
@@ -106,33 +106,33 @@
 ;;### Circles
 
 ;;#### Standard Form
-;; For a circle with radius r centered at (h,k):
+;; For a circle with radius ${r}$ centered at ${(h,k)}$:
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "(x-h)^2 - (y-k)^2 = r^2")
 
 ;;#### Parametric Form
-;; For a circle with radius r centered at (h,k):
+;; For a circle with radius ${r}$ centered at ${(h,k)}$:
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "x = r\\cos(\\theta) + h,\\ y = r\\sin(\\theta) + k,\\ \\theta \\in [0,2\\pi)")
 
 ;;### Ellipses
 
 ;;#### Standard Form
-;;Ellipse with horizontal radius a, vertical radius b, centered at (h,k):
+;;Ellipse with horizontal radius ${a}$, vertical radius ${b}$, centered at ${(h,k)}$:
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "\\frac{(x-h)^2}{a^2} + \\frac{(y-k)^2}{b^2} = 1")
 
 ;;#### Parametric Form
-;;Ellipse with horizontal radius a, vertical radius b, centered at (h,k):
+;;Ellipse with horizontal radius ${a}$, vertical radius ${b}$, centered at ${(h,k)}$:
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "x = a\\cos(\\theta) + h,\\ y =b\\sin(\\theta) + k,\\ \\theta\\in[0,2\\pi)")
 
 ;;### Hyperbolas
 ;;#### Standard Form
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(make-table [(tex "\\textbf{Type}"), (tex "\\textbf{Equation}")]
-            [[(tex "\\text{Horizontal}"), (tex "\\frac{(x-h)^2}{a^2} - \\frac{(y-k)^2}{b^2} = 1")]
-             [(tex "\\text{Vertical}"), (tex "\\frac{(y-k)^2}{a^2} - \\frac{(x-h)^2}{b^2} = 1")]])
+(make-table [(tex "\\textbf{Type}"), (tex "\\textbf{Equation}"), (tex "\\textbf{Asymptotes}")]
+            [[(tex "\\text{Horizontal}"), (tex "\\frac{(x-h)^2}{a^2} - \\frac{(y-k)^2}{b^2} = 1"), (tex "y-k = \\pm \\frac{b}{a}(x-h)")]
+             [(tex "\\text{Vertical}"), (tex "\\frac{(y-k)^2}{a^2} - \\frac{(x-h)^2}{b^2} = 1"), (tex "y-k = \\pm \\frac{a}{b}(x-h)")]])
 ;;## Trigonometry
 
 ;;### Primary Functions
@@ -141,14 +141,6 @@
             [[(tex "\\sin(x)"), (tex "\\frac{\\text{opposite}}{\\text{hypotenuse}}")]
              [(tex "\\cos(x)"), (tex "\\frac{\\text{adjacent}}{\\text{hypotenuse}}")]
              [(tex "\\tan(x)"), (tex "\\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{\\sin(x)}{\\cos(x)}")]])
-
-;;### Angle Sum Formulas
-^{:nextjournal.clerk/visibility {:code :hide}}
-(make-table [(tex "\\textbf{Formula}")]
-            [[(tex "\\sin(\\alpha\\pm\\beta) = \\sin(\\alpha)\\cos(\\beta)\\pm\\cos(\\alpha)\\sin(\\beta)")]
-             [(tex "\\cos(\\alpha\\pm\\beta) = \\cos(\\alpha)\\cos(\\beta)\\mp\\sin(\\alpha)\\sin(\\beta)")]
-             [(tex "\\sin(2x) = (\\sin(x)+\\cos(x))^2 - 1 = 2\\sin(x)\\cos(x)")]
-             [(tex "\\cos(2x) = \\cos^2(x) - \\sin^2(x) = 2\\cos^2(x) - 1")]])
 
 ;;### Reciprocal Functions
 ^{:nextjournal.clerk/visibility {:code :hide}}
@@ -164,6 +156,14 @@
              [(tex "1 + \\cot^2(x) = \\csc^2(x)")]
              [(tex "1 + \\tan^2(x) = \\sec^2(x)")]
              [(tex "\\sec^2(x) + \\csc^2(x) = \\sec^2(x)\\csc^2(x)")]])
+
+;;### Angle Sum Formulas
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table [(tex "\\textbf{Formula}")]
+            [[(tex "\\sin(\\alpha\\pm\\beta) = \\sin(\\alpha)\\cos(\\beta)\\pm\\cos(\\alpha)\\sin(\\beta)")]
+             [(tex "\\cos(\\alpha\\pm\\beta) = \\cos(\\alpha)\\cos(\\beta)\\mp\\sin(\\alpha)\\sin(\\beta)")]
+             [(tex "\\sin(2x) = (\\sin(x)+\\cos(x))^2 - 1 = 2\\sin(x)\\cos(x)")]
+             [(tex "\\cos(2x) = \\cos^2(x) - \\sin^2(x) = 2\\cos^2(x) - 1")]])
 
 ;;### Trigonometric Derivatives
 ^{:nextjournal.clerk/visibility {:code :hide}}
