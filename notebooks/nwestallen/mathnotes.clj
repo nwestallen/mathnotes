@@ -304,6 +304,17 @@
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "F(x) = \\int_{a}^{x} f(t)dt \\, \\Longrightarrow \\, F'(x) = \\frac{d}{dx}\\int_{a}^{x} f(t)dt = f(x)")
 
+;;### Properties of Integrals
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table [(tex "\\textbf{Name}"), (tex "\\textbf{Expression}")]
+            [
+             [(tex "\\text{Constant Multiple Rule}"), (tex "\\int_{a}^{b} kf(x)dx \\, = k \\int_{a}^{b} f(x)dx")]
+             [(tex "\\text{Sum Rule}"), (tex "\\int_{a}^{b} (f(x) + g(x))dx \\, = \\int_{a}^{b} f(x)dx \\, + \\int_{a}^{b} g(x)dx")]
+             [(tex "\\text{Interval of Zero Length}"), (tex "\\int_{a}^{a} f(x)dx \\, = 0")]
+             [(tex "\\text{Reverse Limits}"), (tex "\\int_{a}^{b} f(x)dx \\, = - \\int_{b}^{a} f(x)dx")]
+             [(tex "\\text{Adjacent Intervals}"), (tex "\\int_{a}^{b} f(x)dx \\, + \\int_{b}^{c} f(x)dx \\, = \\int_{a}^{c} f(x)dx")]
+             ])
+
 
 ;;## Vectors
 
