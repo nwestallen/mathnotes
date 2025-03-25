@@ -108,7 +108,7 @@
 ;;#### Standard Form
 ;; For a circle with radius ${r}$ centered at ${(h,k)}$:
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "(x-h)^2 - (y-k)^2 = r^2")
+(tex "(x-h)^2 + (y-k)^2 = r^2")
 
 ;;#### Parametric Form
 ;; For a circle with radius ${r}$ centered at ${(h,k)}$:
@@ -201,7 +201,8 @@
              [(tex "\\log_{b}\\left(\\frac{x}{y}\\right) = \\log_{b}(x) - \\log_{b}(y)")]
              [(tex "\\log_{b}(x^y) = y\\log_{b}(x)")]
              [(tex "\\log_{b}(\\sqrt[y]{x}) = \\frac{\\log_{b}(x)}{y}")]
-             [(tex "x^{\\log_{b}(y)} = y^{\\log_{b}(x)}")]])
+             [(tex "x^{\\log_{b}(y)} = y^{\\log_{b}(x)}")]
+             [(tex "\\log_{b}(x) = \\frac{\\log_{a}(x)}{\\log_{a}(b)}")]])
 
 ;;### Logaritmic Derivatives
 ^{:nextjournal.clerk/visibility {:code :hide}}
@@ -270,12 +271,22 @@
 
 ;;${S_n = a\left(\frac{1-r^{n+1}}{1-r}\right)}$
 
+;;##### Different Starting Index
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\sum_{k=1}^{n} ar^k = ar + ar^2 + ar^3 + ... + ar^n = r * \\sum_{k=0}^{n-1} ar^k")
+
+;;Generally:
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\sum_{k=m}^{n} ar^k = ar^m + ar^{m+1} + ... + ar^n = r^m * \\sum_{k=0}^{n-m} ar^k")
+
 ;;#### Infinite Sum
 
 ;; The sum of an infinite series is the limit of it's partial sums, which converges when ${|r| < 1}$
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\lim_{n \\to \\infty} S_n = \\lim_{n \\to \\infty}a\\left(\\frac{1-r^{n+1}}{1-r}\\right) = \\frac{a}{1-r}")
+(tex "\\sum_{k=0}^{\\infty} ar^k = \\lim_{n \\to \\infty} S_n = \\lim_{n \\to \\infty}a\\left(\\frac{1-r^{n+1}}{1-r}\\right) = \\frac{a}{1-r}")
 
 ;;## Integrals
 
@@ -314,6 +325,15 @@
              [(tex "\\text{Reverse Limits}"), (tex "\\int_{a}^{b} f(x)dx \\, = - \\int_{b}^{a} f(x)dx")]
              [(tex "\\text{Adjacent Intervals}"), (tex "\\int_{a}^{b} f(x)dx \\, + \\int_{b}^{c} f(x)dx \\, = \\int_{a}^{c} f(x)dx")]
              ])
+
+;;### Integration Techniques
+
+;;#### Integration by Parts
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\int udv = uv - \\int vdu")
+
+;;#### Partial Fraction Decomposition
 
 
 ;;## Vectors
