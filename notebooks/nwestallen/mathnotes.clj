@@ -133,6 +133,15 @@
 (make-table [(tex "\\textbf{Type}"), (tex "\\textbf{Equation}"), (tex "\\textbf{Asymptotes}")]
             [[(tex "\\text{Horizontal}"), (tex "\\frac{(x-h)^2}{a^2} - \\frac{(y-k)^2}{b^2} = 1"), (tex "y-k = \\pm \\frac{b}{a}(x-h)")]
              [(tex "\\text{Vertical}"), (tex "\\frac{(y-k)^2}{a^2} - \\frac{(x-h)^2}{b^2} = 1"), (tex "y-k = \\pm \\frac{a}{b}(x-h)")]])
+
+;;#### Parametric Form
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table [(tex "\\textbf{Type}"), (tex "\\textbf{Equations}"), (tex "\\textbf{Domain}")]
+            [
+             [(tex "\\text{Horizontal}"), (tex "x = a\\sec(t), \\ y = b\\tan(t)"), (tex "t \\in [-\\pi, \\pi], t \\neq \\pm \\frac{\\pi}{2}")]
+             [(tex "\\text{Vertical}"), (tex "x = b\\tan(t), \\ y = a\\sect(t)"), (tex "t \\in [-\\pi, \\pi], t \\neq \\pm \\frac{\\pi}{2}")]
+             ])
+
 ;;## Trigonometry
 
 ;;### Primary Functions
