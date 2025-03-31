@@ -328,13 +328,65 @@
 
 ;;### Integration Techniques
 
+;;#### U-Substitution
+;; U-substitution is like the inverse of the chain rule - it works whenever the derivative of the nested part of the function is present in the remainder of the function, potentially multiplied by some constant:
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\int f(g(x)) \\cdot g'(x) dx = \\int f(u) du")
+
 ;;#### Integration by Parts
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "\\int udv = uv - \\int vdu")
 
 ;;#### Partial Fraction Decomposition
+;; Rational functions that would otherwise be difficult to integrate can be converted into integrals that are easier to evaluate via partial fraction decomposition:
 
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\frac{3x + 11}{x^2 - x - 6} = \\frac{4}{x-3} - \\frac{1}{x+2}")
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\int \\frac{3x + 11}{x^2 - x - 6} \\, dx = \\int \\frac{4}{x-3} \\, dx - \\int \\frac{1}{x+2} \\, dx")
+
+;;##### General Technique
+;; First factor the denominator as much as possible, then set it equal to some combination of fractions of those factors:
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\frac{3x+11}{(x-3)(x+2)} = \\frac{A}{(x-3)} + \\frac{B}{(x+2)}")
+
+;;Next, multiply both sides by the denominator:
+
+;;${3x + 11 = A(x+2) + B(x-3)}$
+
+;;Then, choose convient values for x to isolate the constant variables:
+
+;;${3(3) + 11 = A((3) + 2) + B((3) - 3)}$
+
+;;${9 + 11 = A(5) + B(0)}$
+
+;;${20 = 5A}$
+
+;;${A = 4}$
+
+;;${3(-2) + 11 = A((-2) + 2) + B((-2) - 3)}$
+
+;;${-6 + 11 = A(0) + B(-5)}$
+
+;;${5 = -5B}$
+
+;;${B = -1}$
+
+;;##### Repeated Roots
+;; Repeated roots in the denominator get two fractions with constants on the right hand side:
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\frac{P(x)}{(x+a)^2} = \\frac{A}{(x+a)^2} + \\frac{B}{(x+a)}")
+
+;;##### Irreducible Quadratic Factors
+;; Full quadratic factors can be found using Ax+B in the numerator:
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\frac{P(x)}{(ax^2 + bx +c)} = \\frac{Ax + B}{(ax^2 + bx + c)}")
 
 ;;## Vectors
 
@@ -347,7 +399,7 @@
             [[(tex "\\text{Magnitude of } a"), (tex "||a|| = \\sqrt{a_1^2 + a_2^2 + ... + a_n^2}")]
              [(tex "\\text{Sum of } a \\text{ and } b"), (tex "a + b = <a_1 + b_1, a_2 + b_2, ..., a_n + b_n>")]
              [(tex "\\text{Dot Product of } a \\text{ and } b"), (tex "a \\cdot b = a_1(b_1) + a_2(b_2) + ... + a_n(b_n) = ||a||||b||\\cos(\\theta)")]
-             [(tex "\\text{Ange between } a \\text{ and } b"), (tex "\\theta = \\text{arccos}\\left(\\frac{a \\cdot b}{||a|||b||}\\right)")]
+             [(tex "\\text{Angle between } a \\text{ and } b"), (tex "\\theta = \\text{arccos}\\left(\\frac{a \\cdot b}{||a|||b||}\\right)")]
              [(tex "\\text{Cross Product of } a \\text { and } b"), (tex "a \\times b = ||a||||b||\\sin(\\theta)n,\\text{where } n \\text{ is unit nomral vector}")]
              [(tex "\\text{Scalar projection of } a \\text{ onto } b"), (tex "\\text{comp}_b(a) = ||a||\\cos(\\theta) = \\frac{a \\cdot b}{||b||}")]
              [(tex "\\text{Vector projection of } a \\text { onto } b"), (tex "\\text{proj}_b(a) = \\text{comp}_b(a)\\frac{b}{||b||} = \\frac{a \\cdot b}{b \\cdot b}b")]])
