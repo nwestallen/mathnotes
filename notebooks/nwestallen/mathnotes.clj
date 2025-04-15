@@ -387,9 +387,43 @@
 
 
 ;;#### Integration by Parts
+;; Integration by parts is like the inverse of the product rule
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "\\int udv = uv - \\int vdu")
+;; We can use the product rule to derive this relationship:
+
+;; ${\frac{d}{dx}[u(x)v(x)] = u'(x)v(x) + u(x)v'(x)}$
+
+;; ${\int (u(x)v(x))' dx = \int (u'(x)v(x) + u(x)v'(x)) dx}$
+
+;; ${u(x)v(x) = \int u'(x)v(x) dx + \int u(x)v'(x) dx}$
+
+;; ${uv = \int v du + \int u dv}$
+
+;; ${uv - \int v du = \int u dv}$
+
+;;##### General Technique
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\int xe^x \\, dx = \\int udv")
+
+;;Choose for ${dv}$ the part of the integrand that is easier to integrate and ${u}$ the other:
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "u = x, \\, dv = e^x dx")
+
+;;Differentiate and integrate ${u}$ and ${dv}$, resspectively:
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "du = dx, \\, v = e^x")
+
+;;Substitute our new expressions into the above defined equation:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\int xe^x \\, dx = xe^x - \\int e^x \\, dx")
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "= xe^x - e^x + C = e^x(x - 1) + C")
+
 
 ;;#### Partial Fraction Decomposition
 ;; Rational functions that would otherwise be difficult to integrate can be converted into integrals that are easier to evaluate via partial fraction decomposition:
