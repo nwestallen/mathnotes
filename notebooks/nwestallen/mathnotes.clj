@@ -344,6 +344,7 @@
 (tex "\\int f(g(x)) \\cdot g'(x) dx = \\int f(u) du")
 
 ;;##### General Technique
+;; Take any integral expression that fits the form defined above:
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "\\int 4x\\sin(x^2) dx")
 ;; Set ${u}$ equal to the inner function: ${u = x^2}$
@@ -361,6 +362,28 @@
 ;; Substitue your expression for ${u}$ to get final result in terms of ${x}$:
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "-2\\cos(u) + C = -2\\cos(x^2) + C")
+
+;;##### Using Algebraic Manipulation
+
+;; Sometimes the above approach can be applied using further substitution if necessary
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\int x\\sqrt{x+2} \\, dx")
+
+;; Start with the normal technique, ${u = x + 2}$ and ${du = dx}$:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\int x\\sqrt{x+2} \\, dx = \\int x\\sqrt{u} \\, du")
+
+;; Now redefine the remaining ${x}$ in terms of ${u}$, in this case ${x = u - 2}$:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\int x\\sqrt{u} \\, du = \\int (u-2)\\sqrt{u} \\, du")
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "= \\int u^{3/2} - 2u^{1/2} \\, du = \\int u^{3/2} \\, du - 2 \\cdot \\int u^{1/2} \\, du")
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "= \\frac{2}{5}u^{5/2} - \\frac{4}{3}u^{3/2} + C")
+
+;; Finally, subsitute back using our expression for ${u}$, ${u = x + 2}$:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\frac{2}{5}\\sqrt{(x+2)^5} - \\frac{4}{3}\\sqrt{(x+2)^3} + C")
 
 
 ;;#### Integration by Parts
