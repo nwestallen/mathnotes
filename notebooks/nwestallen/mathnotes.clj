@@ -343,6 +343,26 @@
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "\\int f(g(x)) \\cdot g'(x) dx = \\int f(u) du")
 
+;;##### General Technique
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\int 4x\\sin(x^2) dx")
+;; Set ${u}$ equal to the inner function: ${u = x^2}$
+
+;; Differentiate ${u}$ with respect to ${x}$: ${du = 2x dx}$
+
+;; Rewrite the equation in terms of u and du:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\int 4x\\sin(x^2) dx = 2 \\cdot \\int \\sin(u) du")
+
+;; Integrate the new expression with respect to ${u}$:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "2 \\cdot \\int \\sin(u) du = 2 \\cdot (-\\cos(u)) + C = -2\\cos(u) + C")
+
+;; Substitue your expression for ${u}$ to get final result in terms of ${x}$:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "-2\\cos(u) + C = -2\\cos(x^2) + C")
+
+
 ;;#### Integration by Parts
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
