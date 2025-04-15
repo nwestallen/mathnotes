@@ -397,6 +397,18 @@
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "\\frac{P(x)}{(ax^2 + bx +c)} = \\frac{Ax + B}{(ax^2 + bx + c)}")
 
+;;### Arc Length
+
+;;#### Planar Curves
+;; The length of a curve ${y = f(x)}$ from ${x = a}$ to ${x = b}$:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "L = \\int_{a}^{b} \\sqrt{1 + [f'(x)]^2}dx")
+
+;;#### Polar Curves
+;; The length of a curve ${r = f(\theta)}$ from ${\theta_1}$ to ${\theta_2}$:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "L = \\int_{\\theta_1}^{\\theta_2} \\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2} d\\theta")
+
 ;;## Vectors
 
 ;;### Operations
