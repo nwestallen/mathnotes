@@ -139,7 +139,7 @@
 (make-table [(tex "\\textbf{Type}"), (tex "\\textbf{Equations}"), (tex "\\textbf{Domain}")]
             [
              [(tex "\\text{Horizontal}"), (tex "x = a\\sec(t), \\ y = b\\tan(t)"), (tex "t \\in [-\\pi, \\pi], t \\neq \\pm \\frac{\\pi}{2}")]
-             [(tex "\\text{Vertical}"), (tex "x = b\\tan(t), \\ y = a\\sect(t)"), (tex "t \\in [-\\pi, \\pi], t \\neq \\pm \\frac{\\pi}{2}")]
+             [(tex "\\text{Vertical}"), (tex "x = b\\tan(t), \\ y = a\\sec(t)"), (tex "t \\in [-\\pi, \\pi], t \\neq \\pm \\frac{\\pi}{2}")]
              ])
 
 ;;## Trigonometry
@@ -296,6 +296,45 @@
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "\\sum_{k=0}^{\\infty} ar^k = \\lim_{n \\to \\infty} S_n = \\lim_{n \\to \\infty}a\\left(\\frac{1-r^{n+1}}{1-r}\\right) = \\frac{a}{1-r}")
+
+;;### Taylor & Maclaurin Series
+;;#### Taylor Polynomials
+;; We can linearly approximate a function around the point ${x = a}$ as follows:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "f(x) \\approx L(x) = f(a) + f'(a)(x-a)")
+;; This approximates the function ${f(x)}$ using a straight line based off its first derivative.
+
+;; We can approximate ${f(x)}$ around ${a}$ more closely using its second derivative to form a quadratic curve:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "f(x) \\approx P_2(x) = f(a) + f'(a)(x-a) + \\frac{1}{2}f''(a)(x-a)^2")
+;; Likewise we can add a third term to get a cubic approximation:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "f(x) \\approx P_3(x) = f(a) + f'(a)(x-a) + \\frac{1}{2!}f''(a)(x-a)^2 + \\frac{1}{3!}f'''(a)(x-a)^3")
+;; In general we can define the ${n^{th}}$ degree Taylor polynomial of a fucntion ${f(x)}$ around ${x = a}$:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "f(x) \\approx P_n(x) = f(a) + f'(a)(x-a) + \\frac{f''(a)}{2!}(x-a)^2 + ... + \\frac{f^{(n)}(a)}{n!}(x-a)^n")
+
+;;#### Taylor Series
+;; The Taylor Series of ${f(x)}$ around ${a}$ takes Taylor polynomial approximations to their limit:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!}(x-a)^n")
+
+;;#### Maclaurin Series
+;; The Taylor series for ${f(x)}$ in the special case where ${a = 0}$ is called a Maclaurin Series:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(0)}{n!}x^n")
+
+;;#### Standard Maclaurin Series
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table [(tex "\\bf{f(x)}"), (tex "\\textbf{Series Expansion}"), (tex "\\textbf{Domain}")]
+            [
+             [(tex "\\frac{1}{1-x}"), (tex "1 + x + x^2 + ... + x^n + ... = \\sum_{n=0}^{\\infty} x^n"), (tex "x \\in (-1, 1)")]
+             [(tex "\\frac{1}{1+x}"), (tex "1 - x + x^2 - ... + (-1)^nx^n + ... = \\sum_{n=0}^{\\infty} (-1)^nx^n"), (tex "x \\in (-1, 1)")]
+             [(tex "\\ln(1+x)"), (tex "x - \\frac{1}{2}x^2 + \\frac{1}{3}x^3 - ... + \\frac{(-1)^{n+1}x^n}{n} + ... = \\sum_{n=1}^{\\infty} \\frac{(-1)^{n+1}x^n}{n}"), (tex "x \\in (-1, 1]")]
+             [(tex "e^x"), (tex "1 + x + \\frac{x^2}{2!} + ... + \\frac{x^n}{n!} + ... = \\sum_{n=0}^{\\infty} \\frac{x^n}{n!}"), (tex "x \\in (-\\infty, \\infty)")]
+             [(tex "\\cos(x)"), (tex "1 - \\frac{x^2}{2!} + \\frac{x^4}{4!} - ... + \\frac{(-1)^nx^{2n}}{(2n)!} + ... = \\sum_{n=0}^{\\infty} \\frac{(-1)^nx^{2n}}{(2n)!}"), (tex "x \\in (-\\infty, \\infty)")]
+             [(tex "\\sin(x)"), (tex "x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - ... + \\frac{(-1)^nx^{2n+1}}{(2n+1)!} + ... = \\sum_{n=0}^{\\infty} \\frac{(-1)^nx^{2n+1}}{(2n+1)!}"), (tex "x \\in (-\\infty, \\infty)")]
+             ])
 
 ;;## Integrals
 
