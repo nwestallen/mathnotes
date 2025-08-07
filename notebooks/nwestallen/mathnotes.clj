@@ -252,6 +252,16 @@
 
 ;;## Discrete Sums
 
+;;### Properties
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table [(tex "\\textbf{Property}"), (tex "\\textbf{Definition}")]
+            [
+             [(tex "\\text{Distributive Property}"), (tex " \\sum_{k=m}^n C \\cdot f(k) = C \\cdot \\sum_{k=m}^n f(k)")]
+             [(tex "\\text{Associative Property}"), (tex "\\sum_{k=m}^n (f(k)+g(k)) = \\sum_{k=m}^n f(k) + \\sum_{k=m}^n g(k)")]
+             [(tex "\\text{Commutative Property}"), (tex "\\sum_{k=m}^n f(k)= \\sum_{k=n}^m f(k), \\, \\text{(order doesn't matter)}")]
+             [(tex "\\text{Index Shift}"), (tex "\\sum_{k=m}^n f(k)= \\sum_{k=m+h}^{n+h} f(k-h)")]
+             ])
+
 ;;### Arithmetic Series
 ;;$${1 + 2 + 3 + 4 + 5 = 15 = \frac{(1 + 5) + (2 + 4) + (3 + 3) + (4 + 2) + (5 + 1)}{2} = \frac{6 + 6 + 6 + 6 + 6}{2}}$$
 
@@ -266,7 +276,7 @@
 ;;#### Finitie Sum
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "a + ar + ar^2 + ... + ar^n = \\sum_{k=0}^{n} ar^k = a\\left(\\frac{1-r^{n+1}}{1-r}\\right)")
+(tex "S_n = a + ar + ar^2 + ... + ar^n = \\sum_{k=0}^{n} ar^k = a\\left(\\frac{1-r^{n+1}}{1-r}\\right)")
 
 ;;##### Derivation
 
@@ -280,6 +290,10 @@
 
 ;;${S_n = a\left(\frac{1-r^{n+1}}{1-r}\right)}$
 
+;;##### Alternate Form
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "S_n = \\sum_{k=1}^{n} ar^{k-1} = a\\left(\\frac{1-r^n}{1-r}\\right)")
+
 ;;##### Different Starting Index
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
@@ -288,7 +302,7 @@
 ;;Generally:
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\sum_{k=m}^{n} ar^k = ar^m + ar^{m+1} + ... + ar^n = r^m * \\sum_{k=0}^{n-m} ar^k")
+(tex "\\sum_{k=m}^{n} ar^k = ar^m + ar^{m+1} + ... + ar^n = r^m * \\sum_{k=0}^{n-m} ar^k = a\\left(\\frac{r^m - r^{n+1}}{1-r}\\right)")
 
 ;;#### Infinite Sum
 
@@ -296,6 +310,13 @@
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "\\sum_{k=0}^{\\infty} ar^k = \\lim_{n \\to \\infty} S_n = \\lim_{n \\to \\infty}a\\left(\\frac{1-r^{n+1}}{1-r}\\right) = \\frac{a}{1-r}")
+;; or
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\sum_{k=1}^{\\infty} ar^k = \\lim_{n \\to \\infty} S_n = \\lim_{n \\to \\infty}a\\left(\\frac{1-r^{n+1}}{1-r}\\right) - a(r^0) = \\frac{a}{1-r} - a\\left(\\frac{1-r}{1-r}\\right) = \\frac{ar}{1-r}")
+;;Generally:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\sum_{k=m}^{\\infty} ar^k = \\frac{ar^m}{1-r}")
+
 
 ;;### Taylor & Maclaurin Series
 ;;#### Taylor Polynomials
