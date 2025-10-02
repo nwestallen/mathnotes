@@ -266,6 +266,22 @@
 ;;${\frac{\text{dy}}{\text{dx}} = \frac{3x}{y} }$
 
 ;;### Inverse Functions
+;; Implicit differentation can be used to find the derivative of an inverse function without needing to explicitly compute the inverse function
+
+;; Given that ${f(x) = x^2 + 4x}$ find ${(f^{-1})'(x)}$:
+
+;; Let the inverse of ${y = x^2 + 4x}$ be defined as ${x = y^2 + 4y}$, ${\, \, f^{-1}(x) = y}$
+
+;;${\frac{\text{d}}{\text{dy}}(x) = \frac{\text{d}}{\text{dy}}(y^2 + 4y)}$
+
+;;${ \frac{\text{dx}}{\text{dy}}= 2y + 4}$
+
+;;${\frac{\text{dy}}{\text{dx}} = \frac{1}{\frac{\text{dx}}{\text{dy}}}}$
+
+;;${\frac{\text{dy}}{\text{dx}} = \frac{1}{2y + 4}}$
+
+;;${(f^{-1})'(x) = \frac{1}{2(f^{-1}(x)) + 4}}$
+
 
 ;;### Parametric Curves
 ;;When x an y are both defined as functions of a third variable t, we can find the derivative of y with respect to x by rearranging the functions and applying the chain rule
