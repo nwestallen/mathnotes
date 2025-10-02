@@ -282,9 +282,30 @@
 
 ;;${(f^{-1})'(x) = \frac{1}{2(f^{-1}(x)) + 4}}$
 
-
 ;;### Parametric Curves
-;;When x an y are both defined as functions of a third variable t, we can find the derivative of y with respect to x by rearranging the functions and applying the chain rule
+;;When x an y are both defined as functions of a third variable t, we can find the derivative of y with respect to x by rearranging the functions and applying the chain rule:
+
+;;${\frac{\text{d}}{\text{dx}}\left(y(t(x))\right) = y'(t(x)) \cdot t'(x) = \frac{\text{dy}}{\text{dt}} \cdot \frac{\text{dt}}{\text{dx}} = \frac{\text{dy/dt}}{\text{dx/dt}} = \frac{y'(t)}{x'(t)} }$ 
+
+;;#### Circle Example
+
+;; ${x = 4\cos{\theta}, \, \, \, y = 4\sin{\theta}}$
+
+;; ${\frac{x}{4} = \cos{\theta}}$
+
+;; ${\arccos{(\frac{x}{4})} = \theta}$
+
+;; ${y = 4\sin{(\arccos{(\frac{x}{4})})}}$
+
+;; ${y'(x) = 4\cos{(\arccos{(\frac{x}{4})})} \cdot \left(-\frac{1}{\sqrt{1-x^2}}\right) = -\frac{x}{\sqrt{1-x^2}}}$ 
+
+;; ${y'(x) = -\frac{4\cos{\theta}}{\sqrt{1-16\cos^2\theta}} = -\frac{4\cos{\theta}}{4\sin{\theta}} = -\cot{\theta}}$
+
+;; or
+
+;; ${x'(\theta) = -4\sin{\theta}, \, \, \, y'(\theta) = 4\cos(\theta)}$
+
+;; ${\frac{y'(\theta)}{x'(\theta)} = \frac{4\cos{\theta}}{-4\sin{\theta}} = -\cot{\theta}}$
 
 ;;## Discrete Sums
 
