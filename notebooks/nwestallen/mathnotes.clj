@@ -250,6 +250,26 @@
              [(tex "\\text{Chain Rule}"), (tex "(f(g(x)))' = f'(g(x))(g'(x))")]
              ])
 
+;;### Implicit Differentiaion
+;; Functions defined in implicit form can be diffrentiated directly:
+
+;;${y^2 - 3x^2 = 6}$
+
+;;${\frac{\text{d}}{\text{dx}}(y^2 - 3x^2) = \frac{\text{d}}{\text{dx}}(6)}$
+
+;;${\frac{\text{d}}{\text{dx}}(y^2) - \frac{\text{d}}{\text{dx}}(3x^2) = 0}$
+
+;;${(2y)\left(\frac{\text{dy}}{\text{dx}}\right) - 6x = 0 \, \, \,}$ chain rule applied to ${y(x)}$
+
+;;${2y\left(\frac{\text{dy}}{\text{dx}}\right) = 6x }$
+
+;;${\frac{\text{dy}}{\text{dx}} = \frac{3x}{y} }$
+
+;;### Inverse Functions
+
+;;### Parametric Curves
+;;When x an y are both defined as functions of a third variable t, we can find the derivative of y with respect to x by rearranging the functions and applying the chain rule
+
 ;;## Discrete Sums
 
 ;;### Properties
