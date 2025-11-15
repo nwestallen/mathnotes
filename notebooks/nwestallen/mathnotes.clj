@@ -618,3 +618,26 @@
              [(tex "\\text{Cross Product of } a \\text { and } b"), (tex "a \\times b = ||a||||b||\\sin(\\theta)n,\\text{where } n \\text{ is unit nomral vector}")]
              [(tex "\\text{Scalar projection of } a \\text{ onto } b"), (tex "\\text{comp}_b(a) = ||a||\\cos(\\theta) = \\frac{a \\cdot b}{||b||}")]
              [(tex "\\text{Vector projection of } a \\text { onto } b"), (tex "\\text{proj}_b(a) = \\text{comp}_b(a)\\frac{b}{||b||} = \\frac{a \\cdot b}{b \\cdot b}b")]])
+
+;;### Vector Geometry
+
+;;#### Equation of a Line
+;; The equation of a straight line passing through point P and parallel to vector v in ${\R^3}$: ${{\bf r} = {\bf p} + t{\bf v}}$, with ${{\bf r} = <x, y, z>, {\bf p} = <p_1, p_2, p_3>}$ and ${{\bf v} = <v_1, v_2, v_3>}$
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table [(tex "\\textbf{Form}"), (tex "\\textbf{Equation}")]
+            [
+             [(tex "\\text{Vector}"), (tex "{\\bf r} = \\begin{bmatrix} p_1 \\\\ p_2 \\\\ p_3 \\end{bmatrix} + t\\begin{bmatrix} v_1 \\\\ v_2 \\\\ v_3\\end{bmatrix}")]
+             [(tex "\\text{Parametric}"), (tex "{\\bf r} = \\begin{bmatrix} x \\\\ y \\\\ z\\end{bmatrix}, \\, \\, \\, \\begin{cases} x = p_1 + v_1t \\\\ y = p_2 + v_2t \\\\ z = p_3 + v_3t\\end{cases}")]
+             [(tex "\\text{Cartesian}"), (tex "\\frac{x - p_1}{v_1} = \\frac{y - p_2}{v_2} = \\frac{z - p_3}{v_3} = t")]
+             ])
+
+;; #### Equation of a Plane
+;; The vector equation of the plane that passes through the point P: ${{\bf (r - p) \cdot n} = 0}$ with the normal vector,  ${{\bf n} = <n_1, n_2, n_3>}$ perpendicular to the plane and ${{\bf r} = <x, y, z>}$
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table [(tex "\\textbf{Form}"), (tex "\\textbf{Equation}")]
+            [
+             [(tex "\\text{Vector}"), (tex "\\bf r \\cdot n = p \\cdot n")]
+             [(tex "\\text{Parametric}"), (tex "{\\bf r} = {\\bf p} + s{\\bf b} + t{\\bf c}, \\newline \\text{where {\\bf b} and {\\bf c} are vectors parallel to the plane,} \\newline {\\bf b \\times c = n}, \\newline \\text{and {\\it s} and {\\it t} are scalar parameters}")]
+             [(tex "\\text{Cartesian}"), (tex "n_1x + n_2y + n_3z - ({\\bf n} \\cdot {\\bf p}) = 0")]
+             ])
+
