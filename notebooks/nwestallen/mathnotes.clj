@@ -307,6 +307,28 @@
 
 ;; ${\frac{y'(\theta)}{x'(\theta)} = \frac{4\cos{\theta}}{-4\sin{\theta}} = -\cot{\theta}}$
 
+;;### Logarithmic Differentiation
+
+;; In situations like this where both the base and the exponent are functions of x, we cannot apply the power rule, the exponential rule or combine them with the chain rule to differentiate, instead, we take the natural log of both sides:
+
+;; ${y = x^x}$
+
+;; ${\ln{y} = \ln{x^x}}$
+
+;; ${\ln{y} = x\ln{x}}$
+
+;; Then differntiate both sides with respect to ${x}$:
+
+;;${\frac{\text{d}}{\text{d}x}\left(\ln{y}\right) = \frac{\text{d}}{\text{d}x}\left(x\ln{x}\right)}$
+
+;;${\frac{1}{y} \cdot \frac{\text{d}y}{\text{d}x} = \ln{x} + 1}$
+
+;; Then solve for ${\frac{\text{d}y}{\text{d}x}}$:
+
+;;${\frac{\text{d}y}{\text{d}x} = y(\ln{x} + 1)}$
+
+;;${\frac{\text{d}y}{\text{d}x} = x^x(\ln{x} + 1)}$
+
 ;;## Discrete Sums
 
 ;;### Properties
