@@ -625,9 +625,9 @@
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "L = \\int_{\\theta_1}^{\\theta_2} \\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2} d\\theta")
 
-;;## Vectors
+;;## Linear Algebra
 
-;;### Operations
+;;### Vector Operations
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "\\text{Let } a = <a_1, a_2, ... , a_n > \\text{ and } \\:  b = <b_1, b_2, ... , b_n>")
 
@@ -662,4 +662,15 @@
              [(tex "\\text{Parametric}"), (tex "{\\bf r} = {\\bf p} + s{\\bf b} + t{\\bf c}, \\newline \\text{where {\\bf b} and {\\bf c} are vectors parallel to the plane,} \\newline {\\bf b \\times c = n}, \\newline \\text{and {\\it s} and {\\it t} are scalar parameters}")]
              [(tex "\\text{Cartesian}"), (tex "n_1x + n_2y + n_3z - ({\\bf n} \\cdot {\\bf p}) = 0")]
              ])
+
+;;### Matrix Operations
+
+;;#### Matrix Addition & Subtraction
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} \\pm \\begin{bmatrix} e & f \\\\ g & h \\end{bmatrix} = \\begin{bmatrix} (a \\pm e) & (b \\pm f) \\\\ (c \\pm g) & (d \\pm h) \\end{bmatrix}")
+
+;;#### Matrix Multiplication
+
+;; There are four ways to look at it
 
