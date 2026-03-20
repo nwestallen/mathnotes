@@ -673,6 +673,14 @@
 ;;#### Scalar Multiplication
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "k \\cdot \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} = \\begin{bmatrix} k \\cdot a & k \\cdot b \\\\ k \\cdot c & k \\cdot d \\end{bmatrix}")
+(tex "k \\cdot \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} \\cdot k = \\begin{bmatrix} k \\cdot a & k \\cdot b \\\\ k \\cdot c & k \\cdot d \\end{bmatrix}")
 
+;;#### Multiplying Rows and Columns
 
+;; Multiplying a (1xn) row by a (nx1) column is the dot product of the two
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\begin{bmatrix} a & b & c \\end{bmatrix} \\begin{bmatrix} d \\\\ e \\\\ f \\end{bmatrix} = ad + be + cf")
+
+;; Multiplying a (nx1) column by a (1xn) row results in an (nxn) matrix of the corresponding products
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\begin{bmatrix} a \\\\ b \\\\ c \\end{bmatrix} \\begin{bmatrix} d & e & f \\end{bmatrix} = \\begin{bmatrix} ad & ae & af \\\\ bd & be & bf \\\\ cd & ce & cf \\end{bmatrix}")
