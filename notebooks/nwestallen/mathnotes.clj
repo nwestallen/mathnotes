@@ -670,7 +670,9 @@
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "\\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} \\pm \\begin{bmatrix} e & f \\\\ g & h \\end{bmatrix} = \\begin{bmatrix} (a \\pm e) & (b \\pm f) \\\\ (c \\pm g) & (d \\pm h) \\end{bmatrix}")
 
-;;#### Matrix Multiplication
+;;#### Scalar Multiplication
 
-;; There are four ways to look at it
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "k \\cdot \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} = \\begin{bmatrix} k \\cdot a & k \\cdot b \\\\ k \\cdot c & k \\cdot d \\end{bmatrix}")
+
 
