@@ -635,6 +635,7 @@
 (make-table [(tex "\\textbf{Name}"), (tex "\\textbf{Definition}")]
             [[(tex "\\text{Magnitude of } a"), (tex "||a|| = \\sqrt{a_1^2 + a_2^2 + ... + a_n^2}")]
              [(tex "\\text{Sum of } a \\text{ and } b"), (tex "a + b = <a_1 + b_1, a_2 + b_2, ..., a_n + b_n>")]
+             [(tex "\\text{Scalar Multiplication of } a"), (tex "k(a) = <ka_1, ka_2, ..., ka_n>")]
              [(tex "\\text{Dot Product of } a \\text{ and } b"), (tex "a \\cdot b = a_1(b_1) + a_2(b_2) + ... + a_n(b_n) = ||a||||b||\\cos(\\theta)")]
              [(tex "\\text{Angle between } a \\text{ and } b"), (tex "\\theta = \\text{arccos}\\left(\\frac{a \\cdot b}{||a|||b||}\\right)")]
              [(tex "\\text{Cross Product of } a \\text { and } b"), (tex "a \\times b = ||a||||b||\\sin(\\theta)n,\\text{where } n \\text{ is unit nomral vector}")]
@@ -663,7 +664,7 @@
              [(tex "\\text{Cartesian}"), (tex "n_1x + n_2y + n_3z - ({\\bf n} \\cdot {\\bf p}) = 0")]
              ])
 
-;;### Matrix Operations
+;;### Basic Matrix Operations
 
 ;;#### Matrix Addition & Subtraction
 
@@ -672,15 +673,75 @@
 
 ;;#### Scalar Multiplication
 
+;; Multiplying a matrix by a scalar is commutative
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "k \\cdot \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} \\cdot k = \\begin{bmatrix} k \\cdot a & k \\cdot b \\\\ k \\cdot c & k \\cdot d \\end{bmatrix}")
 
 ;;#### Multiplying Rows and Columns
 
-;; Multiplying a (1xn) row by a (nx1) column is the dot product of the two
+;; Multiplying rows and columns (and matrices in general) is *not* commutative:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\begin{bmatrix} a & b & c \\end{bmatrix} \\begin{bmatrix} d \\\\ e \\\\ f \\end{bmatrix} \\neq \\begin{bmatrix} a \\\\ b \\\\ c \\end{bmatrix} \\begin{bmatrix} d & e & f \\end{bmatrix}")
+
+;; Multiplying a (1xn) row by a (nx1) column is the dot product of the two:
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "\\begin{bmatrix} a & b & c \\end{bmatrix} \\begin{bmatrix} d \\\\ e \\\\ f \\end{bmatrix} = ad + be + cf")
 
-;; Multiplying a (nx1) column by a (1xn) row results in an (nxn) matrix of the corresponding products
+;; Multiplying a (nx1) column by a (1xn) row results in an (nxn) matrix of the corresponding products:
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "\\begin{bmatrix} a \\\\ b \\\\ c \\end{bmatrix} \\begin{bmatrix} d & e & f \\end{bmatrix} = \\begin{bmatrix} ad & ae & af \\\\ bd & be & bf \\\\ cd & ce & cf \\end{bmatrix}")
+
+;;### Matrix Multiplication
+
+;; To multiply two matrices ${A}$ & ${B}$, the number of columns of ${A}$ must equal the number of rows of ${B}$:
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "A = \\begin{bmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\\\ a_{31} & a_{32} \\end{bmatrix}, \\,
+B =\\begin{bmatrix} b_{11} & b_{12} & b_{13} \\\\ b_{21} & b_{22} & b_{23} \\end{bmatrix}")
+
+;; In general, multiplying a ${m \times n}$ matrix by a ${n \times p}$ matrix will result in a ${m \times p}$ matrix
+
+;; There are four ways of viewing matrix multiplication:
+
+;;#### Matrix of Dot Products of Rows of ${A}$ with Columns of ${B}$
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "AB = \\begin{bmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\\\ a_{31} & a_{32} \\end{bmatrix} \\begin{bmatrix} b_{11} & b_{12} & b_{13} \\\\ b_{21} & b_{22} & b_{23} \\end{bmatrix} =
+\\begin{bmatrix}
+(a_{11}b_{11} + a_{12}b_{21}) & (a_{11}b_{12} + a_{12}b_{22}) & (a_{11}b_{13} + a_{12}b_{23}) \\\\
+(a_{21}b_{11} + a_{22}b_{21}) & (a_{21}b_{12} + a_{22}b_{22}) & (a_{21}b_{13} + a_{22}b_{23}) \\\\
+(a_{31}b_{11} + a_{32}b_{21}) & (a_{31}b_{12} + a_{32}b_{22}) & (a_{31}b_{13} + a_{32}b_{23})
+\\end{bmatrix}
+")
+
+;;#### Matrix of ${A}$ multiplied by columns of ${B}$
+
+;;This results in ${p \, \,  (m \times 1)}$ columns
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "AB = \\begin{bmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\\\ a_{31} & a_{32} \\end{bmatrix} \\begin{bmatrix} b_{11} & b_{12} & b_{13} \\\\ b_{21} & b_{22} & b_{23} \\end{bmatrix} =
+\\begin{bmatrix}
+A\\begin{bmatrix} b_{11} \\\\ b_{21} \\end{bmatrix} &
+A\\begin{bmatrix} b_{12} \\\\ b_{22} \\end{bmatrix} &
+A\\begin{bmatrix} b_{13} \\\\ a_{23} \\end{bmatrix}
+\\end{bmatrix}
+")
+;;#### Matrix of rows of ${A}$ multiplied by ${B}$
+
+;;This results in ${m \, (1 \times p)}$ rows
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "AB = \\begin{bmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\\\ a_{31} & a_{32} \\end{bmatrix} \\begin{bmatrix} b_{11} & b_{12} & b_{13} \\\\ b_{21} & b_{22} & b_{23} \\end{bmatrix} =
+\\begin{bmatrix}
+\\begin{bmatrix} a_{11} & a_{12} \\end{bmatrix}B \\\\
+\\begin{bmatrix} a_{21} & a_{22} \\end{bmatrix}B \\\\
+\\begin{bmatrix} a_{31} & a_{32} \\end{bmatrix}B
+\\end{bmatrix}
+")
+
+;;#### Sum of Columns of ${A}$ Multiplied by Rows of ${B}$
+
+;;This sums ${n \, (m \times p)}$ matrices
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "AB = \\begin{bmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\\\ a_{31} & a_{32} \\end{bmatrix} \\begin{bmatrix} b_{11} & b_{12} & b_{13} \\\\ b_{21} & b_{22} & b_{23} \\end{bmatrix} =
+\\begin{bmatrix} a_{11} \\\\ a_{21} \\\\ a_{31} \\end{bmatrix}\\begin{bmatrix} b_{11} & b_{12} & b_{13} \\end{bmatrix} +
+\\begin{bmatrix} a_{12} \\\\ a_{22} \\\\ a_{32} \\end{bmatrix}\\begin{bmatrix} b_{21} & b_{22} & b_{23} \\end{bmatrix} +
+")
