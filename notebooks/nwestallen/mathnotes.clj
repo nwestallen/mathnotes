@@ -5,9 +5,14 @@
   (:refer-clojure
    :exclude [+ - * / zero? compare divide numerator denominator
              infinite? abs ref partial =])
-  (:require [emmy.env :as e :refer :all]
+  (:require [emmy.clerk :as ec]
+            [emmy.env :as e :refer :all]
+            [emmy.mafs :as mafs]
             [nextjournal.clerk :as clerk :refer [tex]]
             [nwestallen.utils :refer [make-table]]))
+
+^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
+(ec/install!)
 
 ^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
 (def render-eq (comp tex ->TeX))
@@ -744,4 +749,8 @@ A\\begin{bmatrix} b_{13} \\\\ a_{23} \\end{bmatrix}
 (tex "AB = \\begin{bmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\\\ a_{31} & a_{32} \\end{bmatrix} \\begin{bmatrix} b_{11} & b_{12} & b_{13} \\\\ b_{21} & b_{22} & b_{23} \\end{bmatrix} =
 \\begin{bmatrix} a_{11} \\\\ a_{21} \\\\ a_{31} \\end{bmatrix}\\begin{bmatrix} b_{11} & b_{12} & b_{13} \\end{bmatrix} +
 \\begin{bmatrix} a_{12} \\\\ a_{22} \\\\ a_{32} \\end{bmatrix}\\begin{bmatrix} b_{21} & b_{22} & b_{23} \\end{bmatrix} +
+\\begin{bmatrix} a_{13} \\\\ a_{23} \\\\ a_{33} \\end{bmatrix}\\begin{bmatrix} b_{31} & b_{32} & b_{33} \\end{bmatrix} 
 ")
+
+(mafs/of-x sin {:color :blue})
+
