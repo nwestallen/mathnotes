@@ -749,8 +749,43 @@ A\\begin{bmatrix} b_{13} \\\\ a_{23} \\end{bmatrix}
 (tex "AB = \\begin{bmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\\\ a_{31} & a_{32} \\end{bmatrix} \\begin{bmatrix} b_{11} & b_{12} & b_{13} \\\\ b_{21} & b_{22} & b_{23} \\end{bmatrix} =
 \\begin{bmatrix} a_{11} \\\\ a_{21} \\\\ a_{31} \\end{bmatrix}\\begin{bmatrix} b_{11} & b_{12} & b_{13} \\end{bmatrix} +
 \\begin{bmatrix} a_{12} \\\\ a_{22} \\\\ a_{32} \\end{bmatrix}\\begin{bmatrix} b_{21} & b_{22} & b_{23} \\end{bmatrix} +
-\\begin{bmatrix} a_{13} \\\\ a_{23} \\\\ a_{33} \\end{bmatrix}\\begin{bmatrix} b_{31} & b_{32} & b_{33} \\end{bmatrix} 
+\\begin{bmatrix} a_{13} \\\\ a_{23} \\\\ a_{33} \\end{bmatrix}\\begin{bmatrix} b_{31} & b_{32} & b_{33} \\end{bmatrix}
 ")
+
+;;## Mafs.cljs Viewer Experiments
 
 (mafs/of-x sin {:color :blue})
 
+(mafs/vector {:tip [3, 2]:tail [1, 1]})
+
+(mafs/mafs
+ {:height 400}
+ (mafs/vector {:tip [3 2] :tail [1 1] :color "magenta"}))
+
+(mafs/mafs
+ {:view-box {:x [-0.5 4.5] :y [-0.5 3.5]}
+  :pan false
+  :zoom false
+  :height 400}
+ ;; a then b (solid)
+ (mafs/vector {:tail [0 0] :tip [3 1] :color :blue})
+ (mafs/vector {:tail [3 1] :tip [4 3] :color :magenta})
+ ;; b then a (dashed)
+ (mafs/vector {:tail [0 0] :tip [1 2] :color :magenta  :style :dashed})
+ (mafs/vector {:tail [1 2] :tip [4 3] :color :blue :style :dashed})
+ ;; resultant — both orderings land here
+ (mafs/vector {:tail [0 0] :tip [4 3] :color :gold}))
+
+(mafs/mafs
+ {:view-box {:x [-0.5 4.5] :y [-0.5 3.5]}
+  :pan false
+  :zoom false
+  :height 400}
+ (mafs/vector {:tail [0 0] :tip [3 1] :color :blue})
+ (mafs/vector {:tail [3 1] :tip [4 3] :color :red})
+ (mafs/vector {:tail [0 0] :tip [1 2] :color :red  :style :dashed})
+ (mafs/vector {:tail [1 2] :tip [4 3] :color :blue :style :dashed})
+ (mafs/vector {:tail [0 0] :tip [4 3] :color :green})
+ (mafs/text "a⃗" {:x 1.5 :y 0.5 :attach "s"  :size 25 :color :blue})
+ (mafs/text "b" {:x 3.5 :y 2.0 :attach "e"  :size 25 :color :red})
+ (mafs/text "c" {:x 2.0 :y 1.5 :attach "nw" :size 25 :color :green}))
