@@ -9,7 +9,8 @@
             [emmy.env :as e :refer :all]
             [emmy.mafs :as mafs]
             [nextjournal.clerk :as clerk :refer [tex]]
-            [nwestallen.utils :refer [make-table]]))
+            [nwestallen.utils :refer [make-table]]
+            [clojure.java.io :as io]))
 
 ^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
 (ec/install!)
@@ -632,6 +633,33 @@
 
 ;;## Linear Algebra
 
+;;### Vector Geometry
+
+;;#### Definition of Vectors
+
+;; A vector ${\vec{a}}$ is a quantity with magnitude and direction in ${n}$ dimensions and can be represented visually with an arrow in 2 or 3 dimensions:
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(clerk/html (slurp (io/resource "nwestallen/images/vector-a.svg")))
+
+;;#### Vector Addition
+
+;; Two vectors ${\vec{a}}$ and ${\vec{b}}$ can be summed to create a new vector, ${\vec{c}}$. We can represent this by connecting the vectors tip-to-tail. Vector addition is commutative: ${\, \vec{a} + \vec{b} = \vec{c} = \vec{b} + \vec{a}}$
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(clerk/html (slurp (io/resource "nwestallen/images/vector-addition.svg")))
+
+;; Vector addition is also associative: ${\, (\vec{a} + \vec{b}) + \vec{d} = \vec{a} + (\vec{b} + \vec{d})}$
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(clerk/html (slurp (io/resource "nwestallen/images/vector-assoc.svg")))
+
+;;#### Vector Subraction
+
+;; Vector subtraction can be achieved by the addition of a negated or opposite vector: ${\vec{a} - \vec{b} = \vec{a} + (-\vec{b})}$. Adding the tails of two vectors together, shows us the vector we must subract from one vector to get to the other:
+
+;;#### Scalar Multiplication
+
 ;;### Vector Operations
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tex "\\text{Let } a = <a_1, a_2, ... , a_n > \\text{ and } \\:  b = <b_1, b_2, ... , b_n>")
@@ -646,8 +674,6 @@
              [(tex "\\text{Cross Product of } a \\text { and } b"), (tex "a \\times b = ||a||||b||\\sin(\\theta)n,\\text{where } n \\text{ is unit nomral vector}")]
              [(tex "\\text{Scalar projection of } a \\text{ onto } b"), (tex "\\text{comp}_b(a) = ||a||\\cos(\\theta) = \\frac{a \\cdot b}{||b||}")]
              [(tex "\\text{Vector projection of } a \\text { onto } b"), (tex "\\text{proj}_b(a) = \\text{comp}_b(a)\\frac{b}{||b||} = \\frac{a \\cdot b}{b \\cdot b}b")]])
-
-;;### Vector Geometry
 
 ;;#### Equation of a Line
 ;; The equation of a straight line passing through point P and parallel to vector v in ${\R^3}$: ${{\bf r} = {\bf p} + t{\bf v}}$, with ${{\bf r} = <x, y, z>, {\bf p} = <p_1, p_2, p_3>}$ and ${{\bf v} = <v_1, v_2, v_3>}$
@@ -752,40 +778,3 @@ A\\begin{bmatrix} b_{13} \\\\ a_{23} \\end{bmatrix}
 \\begin{bmatrix} a_{13} \\\\ a_{23} \\\\ a_{33} \\end{bmatrix}\\begin{bmatrix} b_{31} & b_{32} & b_{33} \\end{bmatrix}
 ")
 
-;;## Mafs.cljs Viewer Experiments
-
-(mafs/of-x sin {:color :blue})
-
-(mafs/vector {:tip [3, 2]:tail [1, 1]})
-
-(mafs/mafs
- {:height 400}
- (mafs/vector {:tip [3 2] :tail [1 1] :color "magenta"}))
-
-(mafs/mafs
- {:view-box {:x [-0.5 4.5] :y [-0.5 3.5]}
-  :pan false
-  :zoom false
-  :height 400}
- ;; a then b (solid)
- (mafs/vector {:tail [0 0] :tip [3 1] :color :blue})
- (mafs/vector {:tail [3 1] :tip [4 3] :color :magenta})
- ;; b then a (dashed)
- (mafs/vector {:tail [0 0] :tip [1 2] :color :magenta  :style :dashed})
- (mafs/vector {:tail [1 2] :tip [4 3] :color :blue :style :dashed})
- ;; resultant — both orderings land here
- (mafs/vector {:tail [0 0] :tip [4 3] :color :gold}))
-
-(mafs/mafs
- {:view-box {:x [-0.5 4.5] :y [-0.5 3.5]}
-  :pan false
-  :zoom false
-  :height 400}
- (mafs/vector {:tail [0 0] :tip [3 1] :color :blue})
- (mafs/vector {:tail [3 1] :tip [4 3] :color :red})
- (mafs/vector {:tail [0 0] :tip [1 2] :color :red  :style :dashed})
- (mafs/vector {:tail [1 2] :tip [4 3] :color :blue :style :dashed})
- (mafs/vector {:tail [0 0] :tip [4 3] :color :green})
- (mafs/text "a⃗" {:x 1.5 :y 0.5 :attach "s"  :size 25 :color :blue})
- (mafs/text "b" {:x 3.5 :y 2.0 :attach "e"  :size 25 :color :red})
- (mafs/text "c" {:x 2.0 :y 1.5 :attach "nw" :size 25 :color :green}))
