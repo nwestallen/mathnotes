@@ -778,3 +778,35 @@ A\\begin{bmatrix} b_{13} \\\\ a_{23} \\end{bmatrix}
 \\begin{bmatrix} a_{13} \\\\ a_{23} \\\\ a_{33} \\end{bmatrix}\\begin{bmatrix} b_{31} & b_{32} & b_{33} \\end{bmatrix}
 ")
 
+;;## Symbolic Logic
+
+;;### Names
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table [(tex "\\textbf{Symbol}"), (tex "\\textbf{Name}")]
+ [
+  [(tex "\\text{T}"), (tex "\\text{True}")]
+  [(tex "\\text{F}"), (tex "\\text{False}")]
+  [(tex "\\neg"), (tex "\\text{Not}")]
+  [(tex "\\wedge"), (tex "\\text{And}")]
+  [(tex "\\vee"), (tex "\\text{Or}")]
+  ])
+
+;;### Definitions
+
+;;#### Negation (Not)
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table [(tex "\\bf{A}"), (tex "\\bf{\\neg A}")]
+            [
+             [(tex "\\text{T}"), (tex "\\text{F}")]
+             [(tex "\\text{F}"), (tex "\\text{T}")]
+             ])
+
+;;#### Conjunctions (And/Or)
+^{:nextjournal.clerk/visibility {:code :hide}}
+(make-table [(tex "\\textbf{A}"), (tex "\\textbf{B}"), (tex "\\bf{A \\wedge B}"), (tex "\\bf{A \\vee B}")]
+            [
+             [(tex "\\text{T}"), (tex "\\text{T}"), (tex "\\text{T}"), (tex "\\text{T}")]
+             [(tex "\\text{T}"), (tex "\\text{F}"), (tex "\\text{F}"), (tex "\\text{T}")]
+             [(tex "\\text{F}"), (tex "\\text{T}"), (tex "\\text{F}"), (tex "\\text{T}")]
+             [(tex "\\text{F}"), (tex "\\text{F}"), (tex "\\text{F}"), (tex "\\text{F}")]
+             ])
