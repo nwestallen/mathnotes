@@ -787,8 +787,9 @@ A\\begin{bmatrix} b_{13} \\\\ a_{23} \\end{bmatrix}
   [(tex "\\text{T}"), (tex "\\text{True}")]
   [(tex "\\text{F}"), (tex "\\text{False}")]
   [(tex "\\neg"), (tex "\\text{Not}")]
-  [(tex "\\wedge"), (tex "\\text{And}")]
-  [(tex "\\vee"), (tex "\\text{Or}")]
+  [(tex "\\wedge"), (tex "\\text{And (Conjunction)}")]
+  [(tex "\\vee"), (tex "\\text{Or (Disjunction)}")]
+  [(tex "\\equiv"), (tex "\\text{Logical Equivalence}")]
   ])
 
 ;;### Definitions
@@ -801,7 +802,7 @@ A\\begin{bmatrix} b_{13} \\\\ a_{23} \\end{bmatrix}
              [(tex "\\text{F}"), (tex "\\text{T}")]
              ])
 
-;;#### Conjunctions (And/Or)
+;;#### Connectives (And/Or)
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (make-table [(tex "\\textbf{A}"), (tex "\\textbf{B}"), (tex "\\bf{A \\wedge B}"), (tex "\\bf{A \\vee B}")]
             [
@@ -810,3 +811,34 @@ A\\begin{bmatrix} b_{13} \\\\ a_{23} \\end{bmatrix}
              [(tex "\\text{F}"), (tex "\\text{T}"), (tex "\\text{F}"), (tex "\\text{T}")]
              [(tex "\\text{F}"), (tex "\\text{F}"), (tex "\\text{F}"), (tex "\\text{F}")]
              ])
+
+;;### Laws
+
+;;#### Associative Law
+;; The associative law applies to both conjunction (AND) & disjunction (OR):
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "(A \\wedge B) \\wedge C \\equiv A \\wedge (B \\wedge C) \\; \\;  \\& \\;  \\; (A \\vee B) \\vee C \\equiv A \\vee (B \\vee C)")
+
+;;#### Commutative Law
+;; Likewise, the commutative law applies to both conjunction (AND) & disjunction (OR):
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "A \\wedge B \\equiv B \\wedge A \\; \\; \\& \\; \\; A \\vee B \\equiv B \\vee A")
+
+;;#### Distributive Laws
+;; Conjunction distributes over disjunction:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "A \\wedge (B \\vee C) \\equiv (A \\wedge B) \\vee (A \\wedge C)")
+
+;; Likewise, disjunction distributes over conjunction:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "A \\vee (B \\wedge C) \\equiv (A \\vee B) \\wedge (A \\vee C)")
+
+;;#### Absorbtion Law
+;; Conjunction absorbs disjunction and disjunction absorbs conjunction:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "A \\wedge (A \\vee B) \\equiv A \\equiv A \\vee (A \\wedge B)")
+
+;;#### De Morgan's Laws
+;; Negation flips conjunction into disjunction and vice versa:
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tex "\\neg(A \\wedge B) \\equiv \\neg A \\vee \\neg B \\; \\; \\& \\; \\; \\neg (A \\vee B) \\equiv \\neg A \\wedge \\neg B")
