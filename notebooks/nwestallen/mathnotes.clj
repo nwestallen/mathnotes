@@ -113,25 +113,34 @@
 
 ;;#### Standard Form
 ;; For a circle with radius ${r}$ centered at ${(h,k)}$:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "(x-h)^2 + (y-k)^2 = r^2")
+
+;;$$(x-h)^2 + (y-k)^2 = r^2$$
 
 ;;#### Parametric Form
 ;; For a circle with radius ${r}$ centered at ${(h,k)}$:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "x = r\\cos(\\theta) + h,\\ y = r\\sin(\\theta) + k,\\ \\theta \\in [0,2\\pi)")
+;;
+;; $$
+;; x = r\cos(\theta) + h,\ y = r\sin(\theta) + k,\ \theta \in [0,2\pi)
+;; $$
+;;
 
 ;;### Ellipses
 
 ;;#### Standard Form
 ;;Ellipse with horizontal radius ${a}$, vertical radius ${b}$, centered at ${(h,k)}$:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\frac{(x-h)^2}{a^2} + \\frac{(y-k)^2}{b^2} = 1")
+;;
+;; $$
+;; \frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1
+;; $$
+;;
 
 ;;#### Parametric Form
 ;;Ellipse with horizontal radius ${a}$, vertical radius ${b}$, centered at ${(h,k)}$:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "x = a\\cos(\\theta) + h,\\ y =b\\sin(\\theta) + k,\\ \\theta\\in[0,2\\pi)")
+;;
+;; $$
+;; x = a\cos(\theta) + h,\ y =b\sin(\theta) + k,\ \theta\in[0,2\pi)
+;; $$
+;;
 
 ;;### Hyperbolas
 ;;#### Standard Form
@@ -223,7 +232,7 @@
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (make-table
  [(tex "\\bf f(x)"), (tex "\\bf f'(x)")],
- [[(tex "\\ln{x}"), (render-eq (/ 1 'x))]
+ [[(tex "\\ln{x}"), (render-eq (e// 1 'x))]
   [(tex "\\log_b(x)"), (tex "\\frac{1}{x\\ln(b)}")]])
 
 ;;## Limits
@@ -243,8 +252,11 @@
 
 ;;### Definition
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "f'(x) = \\lim_{h \\to 0}\\frac{f(a+h) - f(a)}{h}")
+;;
+;; $$
+;; f'(x) = \lim_{h \to 0}\frac{f(x+h) - f(x)}{h}
+;; $$
+;;
 
 ;;### Rules
 ^{:nextjournal.clerk/visibility {:code :hide}}
@@ -291,7 +303,7 @@
 ;;### Parametric Curves
 ;;When x an y are both defined as functions of a third variable t, we can find the derivative of y with respect to x by rearranging the functions and applying the chain rule:
 
-;;${\frac{\text{d}}{\text{dx}}\left(y(t(x))\right) = y'(t(x)) \cdot t'(x) = \frac{\text{dy}}{\text{dt}} \cdot \frac{\text{dt}}{\text{dx}} = \frac{\text{dy/dt}}{\text{dx/dt}} = \frac{y'(t)}{x'(t)} }$ 
+;;${\frac{\text{d}}{\text{dx}}\left(y(t(x))\right) = y'(t(x)) \cdot t'(x) = \frac{\text{dy}}{\text{dt}} \cdot \frac{\text{dt}}{\text{dx}} = \frac{\text{dy/dt}}{\text{dx/dt}} = \frac{y'(t)}{x'(t)} }$
 
 ;;#### Circle Example
 
@@ -303,9 +315,9 @@
 
 ;; ${y = 4\sin{(\arccos{(\frac{x}{4})})}}$
 
-;; ${y'(x) = 4\cos{(\arccos{(\frac{x}{4})})} \cdot \left(-\frac{1}{\sqrt{1-x^2}}\right) = -\frac{x}{\sqrt{1-x^2}}}$ 
+;; ${y'(x) = 4\cos{(\arccos{(\frac{x}{4})})} \cdot \left(-\frac{1}{\sqrt{1-(\frac{x}{4})^2}}\right) \cdot (\frac{1}{4}) = -\frac{x}{4\sqrt{1-(\frac{x}{4})^2}}}$
 
-;; ${y'(x) = -\frac{4\cos{\theta}}{\sqrt{1-16\cos^2\theta}} = -\frac{4\cos{\theta}}{4\sin{\theta}} = -\cot{\theta}}$
+;; ${y'(x) = -\frac{4\cos{\theta}}{4\sqrt{1-\cos^2\theta}} = -\frac{4\cos{\theta}}{4\sin{\theta}} = -\cot{\theta}}$
 
 ;; or
 
@@ -350,18 +362,27 @@
 ;;### Arithmetic Series
 ;;$${1 + 2 + 3 + 4 + 5 = 15 = \frac{(1 + 5) + (2 + 4) + (3 + 3) + (4 + 2) + (5 + 1)}{2} = \frac{6 + 6 + 6 + 6 + 6}{2}}$$
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\sum_{i=a}^{b} i = \\frac{(a + b) * n}{2}")
+;;
+;; $$
+;; \sum_{i=a}^{b} i = \frac{(a + b) * n}{2}
+;; $$
+;;
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "n = \\frac{i_n - i_1}{i_2 - i_1} + 1")
+;;
+;; $$
+;; n = \frac{i_n - i_1}{i_2 - i_1} + 1
+;; $$
+;;
 
 ;;### Geometric Series
 
 ;;#### Finitie Sum
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "S_n = a + ar + ar^2 + ... + ar^n = \\sum_{k=0}^{n} ar^k = a\\left(\\frac{1-r^{n+1}}{1-r}\\right)")
+;;
+;; $$
+;; S_n = a + ar + ar^2 + ... + ar^n = \sum_{k=0}^{n} ar^k = a\left(\frac{1-r^{n+1}}{1-r}\right)
+;; $$
+;;
 
 ;;##### Derivation
 
@@ -376,59 +397,95 @@
 ;;${S_n = a\left(\frac{1-r^{n+1}}{1-r}\right)}$
 
 ;;##### Alternate Form
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "S_n = \\sum_{k=1}^{n} ar^{k-1} = a\\left(\\frac{1-r^n}{1-r}\\right)")
+;;
+;; $$
+;; S_n = \sum_{k=1}^{n} ar^{k-1} = a\left(\frac{1-r^n}{1-r}\right)
+;; $$
+;;
 
 ;;##### Different Starting Index
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\sum_{k=1}^{n} ar^k = ar + ar^2 + ar^3 + ... + ar^n = r * \\sum_{k=0}^{n-1} ar^k")
+;;
+;; $$
+;; \sum_{k=1}^{n} ar^k = ar + ar^2 + ar^3 + ... + ar^n = r * \sum_{k=0}^{n-1} ar^k
+;; $$
+;;
 
 ;;Generally:
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\sum_{k=m}^{n} ar^k = ar^m + ar^{m+1} + ... + ar^n = r^m * \\sum_{k=0}^{n-m} ar^k = a\\left(\\frac{r^m - r^{n+1}}{1-r}\\right)")
+;;
+;; $$
+;; \sum_{k=m}^{n} ar^k = ar^m + ar^{m+1} + ... + ar^n = r^m * \sum_{k=0}^{n-m} ar^k = a\left(\frac{r^m - r^{n+1}}{1-r}\right)
+;; $$
+;;
 
 ;;#### Infinite Sum
 
 ;; The sum of an infinite series is the limit of it's partial sums, which converges when ${|r| < 1}$
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\sum_{k=0}^{\\infty} ar^k = \\lim_{n \\to \\infty} S_n = \\lim_{n \\to \\infty}a\\left(\\frac{1-r^{n+1}}{1-r}\\right) = \\frac{a}{1-r}")
+;;
+;; $$
+;; \sum_{k=0}^{\infty} ar^k = \lim_{n \to \infty} S_n = \lim_{n \to \infty}a\left(\frac{1-r^{n+1}}{1-r}\right) = \frac{a}{1-r}
+;; $$
+;;
 ;; or
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\sum_{k=1}^{\\infty} ar^k = \\lim_{n \\to \\infty} S_n = \\lim_{n \\to \\infty}a\\left(\\frac{1-r^{n+1}}{1-r}\\right) - a(r^0) = \\frac{a}{1-r} - a\\left(\\frac{1-r}{1-r}\\right) = \\frac{ar}{1-r}")
+;;
+;; $$
+;; \sum_{k=1}^{\infty} ar^k = \lim_{n \to \infty} S_n = \lim_{n \to \infty}a\left(\frac{1-r^{n+1}}{1-r}\right) - a(r^0) = \frac{a}{1-r} - a\left(\frac{1-r}{1-r}\right) = \frac{ar}{1-r}
+;; $$
+;;
 ;;Generally:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\sum_{k=m}^{\\infty} ar^k = \\frac{ar^m}{1-r}")
+;;
+;; $$
+;; \sum_{k=m}^{\infty} ar^k = \frac{ar^m}{1-r}
+;; $$
+;;
 
 
 ;;### Taylor & Maclaurin Series
 ;;#### Taylor Polynomials
 ;; We can linearly approximate a function around the point ${x = a}$ as follows:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "f(x) \\approx L(x) = f(a) + f'(a)(x-a)")
+;;
+;; $$
+;; f(x) \approx L(x) = f(a) + f'(a)(x-a)
+;; $$
+;;
 ;; This approximates the function ${f(x)}$ using a straight line based off its first derivative.
 
 ;; We can approximate ${f(x)}$ around ${a}$ more closely using its second derivative to form a quadratic curve:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "f(x) \\approx P_2(x) = f(a) + f'(a)(x-a) + \\frac{1}{2}f''(a)(x-a)^2")
+;;
+;; $$
+;; f(x) \approx P_2(x) = f(a) + f'(a)(x-a) + \frac{1}{2}f''(a)(x-a)^2
+;; $$
+;;
 ;; Likewise we can add a third term to get a cubic approximation:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "f(x) \\approx P_3(x) = f(a) + f'(a)(x-a) + \\frac{1}{2!}f''(a)(x-a)^2 + \\frac{1}{3!}f'''(a)(x-a)^3")
+;;
+;; $$
+;; f(x) \approx P_3(x) = f(a) + f'(a)(x-a) + \frac{1}{2!}f''(a)(x-a)^2 + \frac{1}{3!}f'''(a)(x-a)^3
+;; $$
+;;
 ;; In general we can define the ${n^{th}}$ degree Taylor polynomial of a fucntion ${f(x)}$ around ${x = a}$:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "f(x) \\approx P_n(x) = f(a) + f'(a)(x-a) + \\frac{f''(a)}{2!}(x-a)^2 + ... + \\frac{f^{(n)}(a)}{n!}(x-a)^n")
+;;
+;; $$
+;; f(x) \approx P_n(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + ... + \frac{f^{(n)}(a)}{n!}(x-a)^n
+;; $$
+;;
 
 ;;#### Taylor Series
 ;; The Taylor Series of ${f(x)}$ around ${a}$ takes Taylor polynomial approximations to their limit:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!}(x-a)^n")
+;;
+;; $$
+;; f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n
+;; $$
+;;
 
 ;;#### Maclaurin Series
 ;; The Taylor series for ${f(x)}$ in the special case where ${a = 0}$ is called a Maclaurin Series:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(0)}{n!}x^n")
+;;
+;; $$
+;; f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!}x^n
+;; $$
+;;
 
 ;;#### Standard Maclaurin Series
 ^{:nextjournal.clerk/visibility {:code :hide}}
@@ -445,8 +502,11 @@
 ;;## Integrals
 
 ;;### Riemann Sums
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\text{For } y = f(x) \\text{ over the interval } [a,b] \\text{ where } x_k = a + k\\Delta x \\text{ and } \\Delta x = \\frac{b-a}{n}:")
+;;
+;; $$
+;; \text{For } y = f(x) \text{ over the interval } [a,b] \text{ where } x_k = a + k\Delta x \text{ and } \Delta x = \frac{b-a}{n}:
+;; $$
+;;
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (make-table [(tex "\\textbf{Sum Type}"), (tex "\\textbf{Formula}")]
             [
@@ -456,18 +516,27 @@
 
 ;;### Definition of Definite Integrals
 ;; We can define a definite integral f(x) over the interval [a,b] as the limit as n approaches infinity or either a left or right Riemann sum:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\int_{a}^{b} f(x)dx = \\lim_{n \\to \\infty} \\sum_{k=0}^{n-1} f(x_k)\\Delta x = \\lim_{n \\to \\infty} \\sum_{k=1}^{n} f(x_k)\\Delta x,\\, \\Delta x = \\frac{b-a}{n}")
+;;
+;; $$
+;; \int_{a}^{b} f(x)dx = \lim_{n \to \infty} \sum_{k=0}^{n-1} f(x_k)\Delta x = \lim_{n \to \infty} \sum_{k=1}^{n} f(x_k)\Delta x,\, \Delta x = \frac{b-a}{n}
+;; $$
+;;
 
 ;;### The Fundamental Theorem of Calculus
 ;;#### The First Part
 ;; Let ${f}$ be a continuous real-valued function defined on the closed interval ${[a,b]}$. Lef ${F}$ be a function, defined for all ${x}$ in ${[a, b]}$ by ${\int_{a}^{x} f(t)dt}$, then ${F'(x) = f(x)}$ for all ${x}$ in ${(a,b)}$ and ${F}$ is the *antiderivative* of ${f}$
 ;;#### Corollary
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\int_{a}^{b} f(t)dt = F(b) - F(a)")
+;;
+;; $$
+;; \int_{a}^{b} f(t)dt = F(b) - F(a)
+;; $$
+;;
 ;;#### The Second Part
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "F(x) = \\int_{a}^{x} f(t)dt \\, \\Longrightarrow \\, F'(x) = \\frac{d}{dx}\\int_{a}^{x} f(t)dt = f(x)")
+;;
+;; $$
+;; F(x) = \int_{a}^{x} f(t)dt \, \Longrightarrow \, F'(x) = \frac{d}{dx}\int_{a}^{x} f(t)dt = f(x)
+;; $$
+;;
 
 ;;### Properties of Integrals
 ^{:nextjournal.clerk/visibility {:code :hide}}
@@ -485,57 +554,93 @@
 ;;#### U-Substitution
 ;; U-substitution is like the inverse of the chain rule - it works whenever the derivative of the nested part of the function is present in the remainder of the function, potentially multiplied by some constant:
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\int f(g(x)) \\cdot g'(x) dx = \\int f(u) du")
+;;
+;; $$
+;; \int f(g(x)) \cdot g'(x) dx = \int f(u) du
+;; $$
+;;
 
 ;;##### General Technique
 ;; Take any integral expression that fits the form defined above:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\int 4x\\sin(x^2) dx")
+;;
+;; $$
+;; \int 4x\sin(x^2) dx
+;; $$
+;;
 ;; Set ${u}$ equal to the inner function: ${u = x^2}$
 
 ;; Differentiate ${u}$ with respect to ${x}$: ${du = 2x dx}$
 
 ;; Rewrite the equation in terms of u and du:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\int 4x\\sin(x^2) dx = 2 \\cdot \\int \\sin(u) du")
+;;
+;; $$
+;; \int 4x\sin(x^2) dx = 2 \cdot \int \sin(u) du
+;; $$
+;;
 
 ;; Integrate the new expression with respect to ${u}$:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "2 \\cdot \\int \\sin(u) du = 2 \\cdot (-\\cos(u)) + C = -2\\cos(u) + C")
+;;
+;; $$
+;; 2 \cdot \int \sin(u) du = 2 \cdot (-\cos(u)) + C = -2\cos(u) + C
+;; $$
+;;
 
 ;; Substitue your expression for ${u}$ to get final result in terms of ${x}$:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "-2\\cos(u) + C = -2\\cos(x^2) + C")
+;;
+;; $$
+;; -2\cos(u) + C = -2\cos(x^2) + C
+;; $$
+;;
 
 ;;##### Using Algebraic Manipulation
 
 ;; Sometimes the above approach can be applied using further substitution if necessary
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\int x\\sqrt{x+2} \\, dx")
+;;
+;; $$
+;; \int x\sqrt{x+2} \, dx
+;; $$
+;;
 
 ;; Start with the normal technique, ${u = x + 2}$ and ${du = dx}$:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\int x\\sqrt{x+2} \\, dx = \\int x\\sqrt{u} \\, du")
+;;
+;; $$
+;; \int x\sqrt{x+2} \, dx = \int x\sqrt{u} \, du
+;; $$
+;;
 
 ;; Now redefine the remaining ${x}$ in terms of ${u}$, in this case ${x = u - 2}$:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\int x\\sqrt{u} \\, du = \\int (u-2)\\sqrt{u} \\, du")
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "= \\int u^{3/2} - 2u^{1/2} \\, du = \\int u^{3/2} \\, du - 2 \\cdot \\int u^{1/2} \\, du")
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "= \\frac{2}{5}u^{5/2} - \\frac{4}{3}u^{3/2} + C")
+;;
+;; $$
+;; \int x\sqrt{u} \, du = \int (u-2)\sqrt{u} \, du
+;; $$
+;;
+;;
+;; $$
+;; = \int u^{3/2} - 2u^{1/2} \, du = \int u^{3/2} \, du - 2 \cdot \int u^{1/2} \, du
+;; $$
+;;
+;;
+;; $$
+;; = \frac{2}{5}u^{5/2} - \frac{4}{3}u^{3/2} + C
+;; $$
+;;
 
 ;; Finally, subsitute back using our expression for ${u}$, ${u = x + 2}$:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\frac{2}{5}\\sqrt{(x+2)^5} - \\frac{4}{3}\\sqrt{(x+2)^3} + C")
+;;
+;; $$
+;; \frac{2}{5}\sqrt{(x+2)^5} - \frac{4}{3}\sqrt{(x+2)^3} + C
+;; $$
+;;
 
 
 ;;#### Integration by Parts
 ;; Integration by parts is like the inverse of the product rule
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\int udv = uv - \\int vdu")
+;;
+;; $$
+;; \int udv = uv - \int vdu
+;; $$
+;;
 ;; We can use the product rule to derive this relationship:
 
 ;; ${\frac{d}{dx}[u(x)v(x)] = u'(x)v(x) + u(x)v'(x)}$
@@ -550,40 +655,64 @@
 
 ;;##### General Technique
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\int xe^x \\, dx = \\int udv")
+;;
+;; $$
+;; \int xe^x \, dx = \int udv
+;; $$
+;;
 
 ;;Choose for ${dv}$ the part of the integrand that is easier to integrate and ${u}$ the other:
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "u = x, \\, dv = e^x dx")
+;;
+;; $$
+;; u = x, \, dv = e^x dx
+;; $$
+;;
 
 ;;Differentiate and integrate ${u}$ and ${dv}$, resspectively:
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "du = dx, \\, v = e^x")
+;;
+;; $$
+;; du = dx, \, v = e^x
+;; $$
+;;
 
 ;;Substitute our new expressions into the above defined equation:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\int xe^x \\, dx = xe^x - \\int e^x \\, dx")
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "= xe^x - e^x + C = e^x(x - 1) + C")
+;;
+;; $$
+;; \int xe^x \, dx = xe^x - \int e^x \, dx
+;; $$
+;;
+;;
+;; $$
+;; = xe^x - e^x + C = e^x(x - 1) + C
+;; $$
+;;
 
 
 ;;#### Partial Fraction Decomposition
 ;; Rational functions that would otherwise be difficult to integrate can be converted into integrals that are easier to evaluate via partial fraction decomposition:
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\frac{3x + 11}{x^2 - x - 6} = \\frac{4}{x-3} - \\frac{1}{x+2}")
+;;
+;; $$
+;; \frac{3x + 11}{x^2 - x - 6} = \frac{4}{x-3} - \frac{1}{x+2}
+;; $$
+;;
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\int \\frac{3x + 11}{x^2 - x - 6} \\, dx = \\int \\frac{4}{x-3} \\, dx - \\int \\frac{1}{x+2} \\, dx")
+;;
+;; $$
+;; \int \frac{3x + 11}{x^2 - x - 6} \, dx = \int \frac{4}{x-3} \, dx - \int \frac{1}{x+2} \, dx
+;; $$
+;;
 
 ;;##### General Technique
 ;; First factor the denominator as much as possible, then set it equal to some combination of fractions of those factors:
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\frac{3x+11}{(x-3)(x+2)} = \\frac{A}{(x-3)} + \\frac{B}{(x+2)}")
+;;
+;; $$
+;; \frac{3x+11}{(x-3)(x+2)} = \frac{A}{(x-3)} + \frac{B}{(x+2)}
+;; $$
+;;
 
 ;;Next, multiply both sides by the denominator:
 
@@ -610,26 +739,38 @@
 ;;##### Repeated Roots
 ;; Repeated roots in the denominator get two fractions with constants on the right hand side:
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\frac{P(x)}{(x+a)^2} = \\frac{A}{(x+a)^2} + \\frac{B}{(x+a)}")
+;;
+;; $$
+;; \frac{P(x)}{(x+a)^2} = \frac{A}{(x+a)^2} + \frac{B}{(x+a)}
+;; $$
+;;
 
 ;;##### Irreducible Quadratic Factors
 ;; Full quadratic factors can be found using Ax+B in the numerator:
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\frac{P(x)}{(ax^2 + bx +c)} = \\frac{Ax + B}{(ax^2 + bx + c)}")
+;;
+;; $$
+;; \frac{P(x)}{(ax^2 + bx +c)} = \frac{Ax + B}{(ax^2 + bx + c)}
+;; $$
+;;
 
 ;;### Arc Length
 
 ;;#### Planar Curves
 ;; The length of a curve ${y = f(x)}$ from ${x = a}$ to ${x = b}$:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "L = \\int_{a}^{b} \\sqrt{1 + [f'(x)]^2}dx")
+;;
+;; $$
+;; L = \int_{a}^{b} \sqrt{1 + [f'(x)]^2}dx
+;; $$
+;;
 
 ;;#### Polar Curves
 ;; The length of a curve ${r = f(\theta)}$ from ${\theta_1}$ to ${\theta_2}$:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "L = \\int_{\\theta_1}^{\\theta_2} \\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2} d\\theta")
+;;
+;; $$
+;; L = \int_{\theta_1}^{\theta_2} \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2} d\theta
+;; $$
+;;
 
 ;;## Linear Algebra
 
@@ -661,8 +802,11 @@
 ;;#### Scalar Multiplication
 
 ;;### Vector Operations
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\text{Let } a = <a_1, a_2, ... , a_n > \\text{ and } \\:  b = <b_1, b_2, ... , b_n>")
+;;
+;; $$
+;; \text{Let } a = <a_1, a_2, ... , a_n > \text{ and } \:  b = <b_1, b_2, ... , b_n>
+;; $$
+;;
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (make-table [(tex "\\textbf{Name}"), (tex "\\textbf{Definition}")]
@@ -699,84 +843,109 @@
 
 ;;#### Matrix Addition & Subtraction
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} \\pm \\begin{bmatrix} e & f \\\\ g & h \\end{bmatrix} = \\begin{bmatrix} (a \\pm e) & (b \\pm f) \\\\ (c \\pm g) & (d \\pm h) \\end{bmatrix}")
+;;
+;; $$
+;; \begin{bmatrix} a & b \\ c & d \end{bmatrix} \pm \begin{bmatrix} e & f \\ g & h \end{bmatrix} = \begin{bmatrix} (a \pm e) & (b \pm f) \\ (c \pm g) & (d \pm h) \end{bmatrix}
+;; $$
+;;
 
 ;;#### Scalar Multiplication
 
 ;; Multiplying a matrix by a scalar is commutative
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "k \\cdot \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} \\cdot k = \\begin{bmatrix} k \\cdot a & k \\cdot b \\\\ k \\cdot c & k \\cdot d \\end{bmatrix}")
+;;
+;; $$
+;; k \cdot \begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \cdot k = \begin{bmatrix} k \cdot a & k \cdot b \\ k \cdot c & k \cdot d \end{bmatrix}
+;; $$
+;;
 
 ;;#### Multiplying Rows and Columns
 
 ;; Multiplying rows and columns (and matrices in general) is *not* commutative:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\begin{bmatrix} a & b & c \\end{bmatrix} \\begin{bmatrix} d \\\\ e \\\\ f \\end{bmatrix} \\neq \\begin{bmatrix} a \\\\ b \\\\ c \\end{bmatrix} \\begin{bmatrix} d & e & f \\end{bmatrix}")
+;;
+;; $$
+;; \begin{bmatrix} a & b & c \end{bmatrix} \begin{bmatrix} d \\ e \\ f \end{bmatrix} \neq \begin{bmatrix} a \\ b \\ c \end{bmatrix} \begin{bmatrix} d & e & f \end{bmatrix}
+;; $$
+;;
 
 ;; Multiplying a (1xn) row by a (nx1) column is the dot product of the two:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\begin{bmatrix} a & b & c \\end{bmatrix} \\begin{bmatrix} d \\\\ e \\\\ f \\end{bmatrix} = ad + be + cf")
+;;
+;; $$
+;; \begin{bmatrix} a & b & c \end{bmatrix} \begin{bmatrix} d \\ e \\ f \end{bmatrix} = ad + be + cf
+;; $$
+;;
 
 ;; Multiplying a (nx1) column by a (1xn) row results in an (nxn) matrix of the corresponding products:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\begin{bmatrix} a \\\\ b \\\\ c \\end{bmatrix} \\begin{bmatrix} d & e & f \\end{bmatrix} = \\begin{bmatrix} ad & ae & af \\\\ bd & be & bf \\\\ cd & ce & cf \\end{bmatrix}")
+;;
+;; $$
+;; \begin{bmatrix} a \\ b \\ c \end{bmatrix} \begin{bmatrix} d & e & f \end{bmatrix} = \begin{bmatrix} ad & ae & af \\ bd & be & bf \\ cd & ce & cf \end{bmatrix}
+;; $$
+;;
 
 ;;### Matrix Multiplication
 
 ;; To multiply two matrices ${A}$ & ${B}$, the number of columns of ${A}$ must equal the number of rows of ${B}$:
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "A = \\begin{bmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\\\ a_{31} & a_{32} \\end{bmatrix}, \\,
-B =\\begin{bmatrix} b_{11} & b_{12} & b_{13} \\\\ b_{21} & b_{22} & b_{23} \\end{bmatrix}")
+;;
+;; $$
+;; A = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} \end{bmatrix}, \,
+;; B =\begin{bmatrix} b_{11} & b_{12} & b_{13} \\ b_{21} & b_{22} & b_{23} \end{bmatrix}
+;; $$
+;;
 
 ;; In general, multiplying a ${m \times n}$ matrix by a ${n \times p}$ matrix will result in a ${m \times p}$ matrix
 
 ;; There are four ways of viewing matrix multiplication:
 
 ;;#### Matrix of Dot Products of Rows of ${A}$ with Columns of ${B}$
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "AB = \\begin{bmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\\\ a_{31} & a_{32} \\end{bmatrix} \\begin{bmatrix} b_{11} & b_{12} & b_{13} \\\\ b_{21} & b_{22} & b_{23} \\end{bmatrix} =
-\\begin{bmatrix}
-(a_{11}b_{11} + a_{12}b_{21}) & (a_{11}b_{12} + a_{12}b_{22}) & (a_{11}b_{13} + a_{12}b_{23}) \\\\
-(a_{21}b_{11} + a_{22}b_{21}) & (a_{21}b_{12} + a_{22}b_{22}) & (a_{21}b_{13} + a_{22}b_{23}) \\\\
-(a_{31}b_{11} + a_{32}b_{21}) & (a_{31}b_{12} + a_{32}b_{22}) & (a_{31}b_{13} + a_{32}b_{23})
-\\end{bmatrix}
-")
+;;
+;; $$
+;; AB = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} \end{bmatrix} \begin{bmatrix} b_{11} & b_{12} & b_{13} \\ b_{21} & b_{22} & b_{23} \end{bmatrix} =
+;; \begin{bmatrix}
+;; (a_{11}b_{11} + a_{12}b_{21}) & (a_{11}b_{12} + a_{12}b_{22}) & (a_{11}b_{13} + a_{12}b_{23}) \\
+;; (a_{21}b_{11} + a_{22}b_{21}) & (a_{21}b_{12} + a_{22}b_{22}) & (a_{21}b_{13} + a_{22}b_{23}) \\
+;; (a_{31}b_{11} + a_{32}b_{21}) & (a_{31}b_{12} + a_{32}b_{22}) & (a_{31}b_{13} + a_{32}b_{23})
+;; \end{bmatrix}
+;; $$
+;;
 
 ;;#### Matrix of ${A}$ multiplied by columns of ${B}$
 
 ;;This results in ${p \, \,  (m \times 1)}$ columns
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "AB = \\begin{bmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\\\ a_{31} & a_{32} \\end{bmatrix} \\begin{bmatrix} b_{11} & b_{12} & b_{13} \\\\ b_{21} & b_{22} & b_{23} \\end{bmatrix} =
-\\begin{bmatrix}
-A\\begin{bmatrix} b_{11} \\\\ b_{21} \\end{bmatrix} &
-A\\begin{bmatrix} b_{12} \\\\ b_{22} \\end{bmatrix} &
-A\\begin{bmatrix} b_{13} \\\\ a_{23} \\end{bmatrix}
-\\end{bmatrix}
-")
+;;
+;; $$
+;; AB = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} \end{bmatrix} \begin{bmatrix} b_{11} & b_{12} & b_{13} \\ b_{21} & b_{22} & b_{23} \end{bmatrix} =
+;; \begin{bmatrix}
+;; A\begin{bmatrix} b_{11} \\ b_{21} \end{bmatrix} &
+;; A\begin{bmatrix} b_{12} \\ b_{22} \end{bmatrix} &
+;; A\begin{bmatrix} b_{13} \\ b_{23} \end{bmatrix}
+;; \end{bmatrix}
+;; $$
+;;
 ;;#### Matrix of rows of ${A}$ multiplied by ${B}$
 
 ;;This results in ${m \, (1 \times p)}$ rows
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "AB = \\begin{bmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\\\ a_{31} & a_{32} \\end{bmatrix} \\begin{bmatrix} b_{11} & b_{12} & b_{13} \\\\ b_{21} & b_{22} & b_{23} \\end{bmatrix} =
-\\begin{bmatrix}
-\\begin{bmatrix} a_{11} & a_{12} \\end{bmatrix}B \\\\
-\\begin{bmatrix} a_{21} & a_{22} \\end{bmatrix}B \\\\
-\\begin{bmatrix} a_{31} & a_{32} \\end{bmatrix}B
-\\end{bmatrix}
-")
+;;
+;; $$
+;; AB = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} \end{bmatrix} \begin{bmatrix} b_{11} & b_{12} & b_{13} \\ b_{21} & b_{22} & b_{23} \end{bmatrix} =
+;; \begin{bmatrix}
+;; \begin{bmatrix} a_{11} & a_{12} \end{bmatrix}B \\
+;; \begin{bmatrix} a_{21} & a_{22} \end{bmatrix}B \\
+;; \begin{bmatrix} a_{31} & a_{32} \end{bmatrix}B
+;; \end{bmatrix}
+;; $$
+;;
 
 ;;#### Sum of Columns of ${A}$ Multiplied by Rows of ${B}$
 
 ;;This sums ${n \, (m \times p)}$ matrices
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "AB = \\begin{bmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\\\ a_{31} & a_{32} \\end{bmatrix} \\begin{bmatrix} b_{11} & b_{12} & b_{13} \\\\ b_{21} & b_{22} & b_{23} \\end{bmatrix} =
-\\begin{bmatrix} a_{11} \\\\ a_{21} \\\\ a_{31} \\end{bmatrix}\\begin{bmatrix} b_{11} & b_{12} & b_{13} \\end{bmatrix} +
-\\begin{bmatrix} a_{12} \\\\ a_{22} \\\\ a_{32} \\end{bmatrix}\\begin{bmatrix} b_{21} & b_{22} & b_{23} \\end{bmatrix} +
-\\begin{bmatrix} a_{13} \\\\ a_{23} \\\\ a_{33} \\end{bmatrix}\\begin{bmatrix} b_{31} & b_{32} & b_{33} \\end{bmatrix}
-")
+;;
+;; $$
+;; AB = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} \end{bmatrix} \begin{bmatrix} b_{11} & b_{12} & b_{13} \\ b_{21} & b_{22} & b_{23} \end{bmatrix} =
+;; \begin{bmatrix} a_{11} \\ a_{21} \\ a_{31} \end{bmatrix}\begin{bmatrix} b_{11} & b_{12} & b_{13} \end{bmatrix} +
+;; \begin{bmatrix} a_{12} \\ a_{22} \\ a_{32} \end{bmatrix}\begin{bmatrix} b_{21} & b_{22} & b_{23} \end{bmatrix} 
+;; $$
+;;
 
 ;;## Symbolic Logic
 
@@ -786,7 +955,7 @@ A\\begin{bmatrix} b_{13} \\\\ a_{23} \\end{bmatrix}
  [
   [(tex "\\text{T}"), (tex "\\text{True}")]
   [(tex "\\text{F}"), (tex "\\text{False}")]
-  [(tex "\\neg"), (tex "\\text{Not}")]
+  [(tex "\\neg"), (tex "\\text{Not (Negation)}")]
   [(tex "\\wedge"), (tex "\\text{And (Conjunction)}")]
   [(tex "\\vee"), (tex "\\text{Or (Disjunction)}")]
   [(tex "\\equiv"), (tex "\\text{Logical Equivalence}")]
@@ -816,29 +985,47 @@ A\\begin{bmatrix} b_{13} \\\\ a_{23} \\end{bmatrix}
 
 ;;#### Associative Law
 ;; The associative law applies to both conjunction (AND) & disjunction (OR):
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "(A \\wedge B) \\wedge C \\equiv A \\wedge (B \\wedge C) \\; \\;  \\& \\;  \\; (A \\vee B) \\vee C \\equiv A \\vee (B \\vee C)")
+;;
+;; $$
+;; (A \wedge B) \wedge C \equiv A \wedge (B \wedge C) \; \;  \& \;  \; (A \vee B) \vee C \equiv A \vee (B \vee C)
+;; $$
+;;
 
 ;;#### Commutative Law
 ;; Likewise, the commutative law applies to both conjunction (AND) & disjunction (OR):
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "A \\wedge B \\equiv B \\wedge A \\; \\; \\& \\; \\; A \\vee B \\equiv B \\vee A")
+;;
+;; $$
+;; A \wedge B \equiv B \wedge A \; \; \& \; \; A \vee B \equiv B \vee A
+;; $$
+;;
 
 ;;#### Distributive Laws
 ;; Conjunction distributes over disjunction:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "A \\wedge (B \\vee C) \\equiv (A \\wedge B) \\vee (A \\wedge C)")
+;;
+;; $$
+;; A \wedge (B \vee C) \equiv (A \wedge B) \vee (A \wedge C)
+;; $$
+;;
 
 ;; Likewise, disjunction distributes over conjunction:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "A \\vee (B \\wedge C) \\equiv (A \\vee B) \\wedge (A \\vee C)")
+;;
+;; $$
+;; A \vee (B \wedge C) \equiv (A \vee B) \wedge (A \vee C)
+;; $$
+;;
 
 ;;#### Absorbtion Law
 ;; Conjunction absorbs disjunction and disjunction absorbs conjunction:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "A \\wedge (A \\vee B) \\equiv A \\equiv A \\vee (A \\wedge B)")
+;;
+;; $$
+;; A \wedge (A \vee B) \equiv A \equiv A \vee (A \wedge B)
+;; $$
+;;
 
 ;;#### De Morgan's Laws
 ;; Negation flips conjunction into disjunction and vice versa:
-^{:nextjournal.clerk/visibility {:code :hide}}
-(tex "\\neg(A \\wedge B) \\equiv \\neg A \\vee \\neg B \\; \\; \\& \\; \\; \\neg (A \\vee B) \\equiv \\neg A \\wedge \\neg B")
+;;
+;; $$
+;; \neg(A \wedge B) \equiv \neg A \vee \neg B \; \; \& \; \; \neg (A \vee B) \equiv \neg A \wedge \neg B
+;; $$
+;;

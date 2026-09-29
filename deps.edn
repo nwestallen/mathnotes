@@ -1,19 +1,15 @@
 {:paths ["src" "dev" "notebooks"]
  :deps {org.clojure/clojure {:mvn/version "1.11.1"}
-        io.github.nextjournal/clerk {:git/sha "d80187013d7b7b96db3d8b114b8d99f687170668"}
-        org.mentat/emmy {:mvn/version "0.31.0"
-                         ;; This is required because Clerk specifies SCI using a
-                         ;; git dependency and `clojure` can't resolve the
-                         ;; conflict.
-                         :exclusions [org.babashka/sci]}
+        io.github.nextjournal/clerk {:mvn/version "0.18.1158"}
+        org.mentat/emmy {:mvn/version "0.32.0"}
         org.mentat/emmy-viewers {:mvn/version "0.3.2"}}
  :aliases
  {:nextjournal/clerk
   {:extra-deps
    {io.github.nextjournal/clerk.render
     {:git/url "https://github.com/nextjournal/clerk"
-     ;; make sure this sha matches the one in `:deps` above.
-     :git/sha "d80187013d7b7b96db3d8b114b8d99f687170668"
+     ;; Renderer source matching Clerk 0.18.1158.
+     :git/sha "a46ea503eb71a63c85006807928a9eea52d7d07a"
      :deps/root "render"}}
    :exec-fn user/build!
    :exec_args {
